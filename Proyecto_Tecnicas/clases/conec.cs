@@ -13,9 +13,9 @@ namespace Proyecto_Tecnicas.clases
         NpgsqlConnection conex = new NpgsqlConnection();
 
         static String servidor = "localhost";
-        static String bd = "sistemamaritimo";
+        static String bd = "SistemaMaritimo";
         static String usuario = "postgres";
-        static String password = "1423";
+        static String password = "123456";
         static String puerto = "5432";
 
         String cadenaConexion = "server=" + servidor + ";" + "port=" + puerto + ";" + "user id=" + usuario + ";" + "password=" + password + ";" + "database=" + bd + ";";
