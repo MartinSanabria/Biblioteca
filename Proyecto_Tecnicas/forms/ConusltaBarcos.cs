@@ -129,7 +129,8 @@ namespace Proyecto_Tecnicas.clases
                 {
                     // Console.Write("{0}\n", dr[1]);
                     dataGridView1.Rows.Add(consulta1[0], consulta1[1], consulta1[2],
-                        consulta1[3], consulta1[4], consulta1[5], consulta1[6]);
+                        consulta1[3], consulta1[4], consulta1[5], 
+                        consulta1[6]);
                 }
 
             }
@@ -142,7 +143,23 @@ namespace Proyecto_Tecnicas.clases
 
 		private void button4_Click(object sender, EventArgs e)
 		{
-           
+            DateTime fecha;
+            fecha = Convert.ToDateTime(cbFechas.SelectedItem);
+            NpgsqlCommand cmd1 = new NpgsqlCommand("select bc.matricula,bc.bandera,bc.nombre_barco,bc.calado," +
+                    "bc.tonelaje,tp.tipo_barco,CAST(bc.fecha_atraco as varchar) from barco bc " +
+                    "inner join tipoBarco tp on tp.id_barco = bc.tipoBarco " +
+                    "where bc.fecha_atraco = @fecha;",
+                conec.establecerConexion());
+            cmd1.Parameters.AddWithValue("@fecha", fecha);
+            this.dataGridView1.ReadOnly = true;
+            limpiar();
+            NpgsqlDataReader consulta1 = cmd1.ExecuteReader();
+            while (consulta1.Read())
+            {
+                // Console.Write("{0}\n", dr[1]);
+                dataGridView1.Rows.Add(consulta1[0], consulta1[1], consulta1[2],
+                    consulta1[3], consulta1[4], consulta1[5], consulta1[6]);
+            }
         }
 	}
 }
