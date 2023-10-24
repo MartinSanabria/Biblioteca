@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\ControllerAlumLibro.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Libro.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\DetallePrestamoDAO.java
@@ -21,7 +22,10 @@ C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\m
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\DML.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\LibroDAO.java
 =======
+=======
+>>>>>>> 85fcaab (Adding create category and deactivate category)
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Encode.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\controllers\CategoriaController.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\CategoriaDAO.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\RolesDAO.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Usuario.java
@@ -33,9 +37,13 @@ C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\ma
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\PrestamoDAO.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\DetallePrestamoDAO.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\LibroDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\controllers\LibroController.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\DetallePrestamo.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\DML.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\UsuarioDAO.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\com\mycompany\biblioteca\JakartaRestConfiguration.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Libro.java
+<<<<<<< HEAD
 >>>>>>> 3a13672 (Pushing my branch)
+=======
+>>>>>>> 85fcaab (Adding create category and deactivate category)

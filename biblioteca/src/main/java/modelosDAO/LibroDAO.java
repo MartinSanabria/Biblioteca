@@ -65,7 +65,7 @@ public class LibroDAO {
             rs=ps.executeQuery();
             while(rs.next()){
                 Categoria categoria=new Categoria();
-                categoria.setIdCategoria(rs.getInt("id_categoria"));
+                categoria.setId_categoria(rs.getInt("id_categoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
@@ -110,6 +110,7 @@ public class LibroDAO {
             ps.setInt(1,idcategoria);
             rs=ps.executeQuery();
             while (rs.next()){
+<<<<<<< HEAD
                 categoria.setIdCategoria(rs.getInt("idcategoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
 <<<<<<< HEAD
@@ -117,11 +118,18 @@ public class LibroDAO {
 =======
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
+<<<<<<< HEAD
 >>>>>>> 2ccd390 (Modificacion vistas libro)
 =======
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
 >>>>>>> bb5e55e (merge categorias)
+=======
+=======
+                categoria.setId_categoria(rs.getInt("idcategoria"));
+                categoria.setNombre(rs.getString("nombre_categoria"));
+>>>>>>> 4415093 (Adding create category and deactivate category)
+>>>>>>> 85fcaab (Adding create category and deactivate category)
             
             }
 
