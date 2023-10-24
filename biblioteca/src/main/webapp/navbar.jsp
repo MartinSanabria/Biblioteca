@@ -16,7 +16,7 @@
                     <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="LibroController">Libros</a>
+                    <a class="nav-link" href="">Libros</a>
                 </li>
             </ul>             
         </div>

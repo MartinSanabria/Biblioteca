@@ -66,7 +66,7 @@ public class LibroDAO {
             while(rs.next()){
                 Categoria categoria=new Categoria();
                 categoria.setIdCategoria(rs.getInt("id_categoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
+                categoria.setNombre(rs.getString("nombre"));
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
                 lista.add(categoria);
@@ -101,27 +101,30 @@ public class LibroDAO {
         return libro;
     }
     
-    public Categoria consultarPorCategoria(int idcategoria){
+   public Categoria consultarPorCategoria(int idcategoria){
 
-       this.sql="select * from categoria where id_categoria=?";
-        Categoria categoria=new Categoria();
+        this.sql = "select * from categoria where id_categoria=?";
+        Categoria categoria = new Categoria();
+
         try {
-            ps=this.CN.getConnection().prepareStatement(this.sql);
-            ps.setInt(1,idcategoria);
-            rs=ps.executeQuery();
+            ps = this.CN.getConnection().prepareStatement(this.sql);
+            ps.setInt(1, idcategoria);
+            rs = ps.executeQuery();
+
             while (rs.next()){
-                categoria.setIdCategoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
+                categoria.setIdCategoria(rs.getInt("id_categoria"));  // Asegúrate de que los nombres coincidan
+                categoria.setNombre(rs.getString("nombre"));
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
-            
             }
 
-        }catch (Exception e){
-
+        } catch (Exception e) {
+            e.printStackTrace();  // Agrega esta línea para imprimir la traza de la excepción
         }
+
         return categoria;
     }
+
        
      public boolean agregar(Libro libro){
         this.sql="insert into libros(nombre, autor, cantidad, foto, estado, id_categoria) values(?,?,?,?,?,?)";
