@@ -8,14 +8,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        
+        <a class="navbar-brand" href="#">Biblioteca
+        </a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarNav">
+
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
@@ -26,9 +28,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="">Libros</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Categoria</a>
-                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../admin/verCategorias.jsp">Ver categorias</a></li>
+                        <li><a class="dropdown-item" href="../admin/categorias.jsp">Agregar categorias</a></li>
+                    </ul>
+                </li>             
             </ul>             
         </div>
         <a class="btn btn-danger" href="ControllerLogin?action=close"> <%= session.getAttribute("usuario") %>
