@@ -8,7 +8,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
+         <img src="/biblioteca/Assets/LogoOnlyNoBackground.png" alt="" width="50" height="50">
         <a class="navbar-brand" href="#">Biblioteca
+           
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
