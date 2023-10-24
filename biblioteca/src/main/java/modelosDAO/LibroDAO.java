@@ -56,8 +56,29 @@ public class LibroDAO {
         return lista;
     }
     
+     public List ConsultaCategoria(){
+
+        ArrayList<Categoria> lista=new ArrayList<>();
+        this.sql="select * from categoria";
+        try {
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                Categoria categoria=new Categoria();
+                categoria.setIdCategoria(rs.getInt("id_categoria"));
+                categoria.setNombre(rs.getString("nombre_categoria"));
+                categoria.setEstado(rs.getString("estado"));
+                categoria.setEdicion(rs.getString("edicion"));
+                lista.add(categoria);
+            }
+        }catch (Exception e){
+
+        }
+        return lista;
+    }
+    
     public Libro buscarPorID(int id){
-        String sql="select * from libros where id_libro=?";
+        this.sql="select * from libros where id_libro=?";
         Libro libro=new Libro();
         try {
             ps=this.CN.getConnection().prepareStatement(this.sql);
@@ -79,9 +100,29 @@ public class LibroDAO {
         }
         return libro;
     }
+    
+    public Categoria consultarPorCategoria(int idcategoria){
 
+       this.sql="select * from categorias where idcategoria=?";
+        Categoria categoria=new Categoria();
+        try {
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            ps.setInt(1,idcategoria);
+            rs=ps.executeQuery();
+            while (rs.next()){
+                categoria.setIdcategoria(rs.getInt("idcategoria"));
+                categoria.setNombre_categoria(rs.getString("nombre_categoria"));
+            
+            }
+
+        }catch (Exception e){
+
+        }
+        return categoria;
+    }
+       
      public boolean agregar(Libro libro){
-        String sql="insert into libros(nombre, autor, cantidad, foto, estado, id_categoria) values(?,?,?,?,?,?)";
+        this.sql="insert into libros(nombre, autor, cantidad, foto, estado, id_categoria) values(?,?,?,?,?,?)";
         
         try {
             ps=this.CN.getConnection().prepareStatement(this.sql);
@@ -101,6 +142,40 @@ public class LibroDAO {
         return false;
     }
 
+    public boolean actualizar(Libro libro){
+        this.sql="update clientes set nombre=?,autor=?,cantidad=?,foto=?,estado=?,id_categoria=? where id_libro=?";
+        try {
+           ps=this.CN.getConnection().prepareStatement(this.sql);
+            ps.setString(1,libro.getNombre());
+            ps.setString(2,libro.getAutor());
+            ps.setInt(3,libro.getCantidad());
+            ps.setString(4,libro.getFoto());
+            ps.setString(5,libro.getEstado());
+             ps.setInt(6,libro.getIdCategoria());
+            ps.setInt(7,libro.getIdLibro());
+            int filasAfectadas=ps.executeUpdate();
+            if(filasAfectadas>0){
+                return true;
+            }
+        }catch (Exception e){
 
+        }
+        return false;
+    }
+    
+     public boolean eliminar(int id){
+        this.sql="delete from libros where id_libro=?";
+        try {
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            ps.setInt(1,id);
+            int filasAfectadas=ps.executeUpdate();
+            if(filasAfectadas>0){
+                return true;
+            }
+        }catch (Exception e){
+
+        }
+        return false;
+    }
     
 }

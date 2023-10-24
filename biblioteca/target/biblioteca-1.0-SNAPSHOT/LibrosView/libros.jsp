@@ -17,12 +17,12 @@
     </head>
     <body>
         <header>
-            <jsp:include page="./navbar.jsp"></jsp:include>
+            <jsp:include page="../navbar.jsp"/>
         </header>
         <div class="container mt-3">
     <h1>Control de Libros</h1>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-        <a href="/PracticaRelacional/AdminClients/create.jsp" class="btn btn-primary">Agregar</a>
+        <a href="/biblioteca/AdminClients/create.jsp" class="btn btn-primary">Agregar</a>
       </div>
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
