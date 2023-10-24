@@ -44,7 +44,7 @@
                     } 
                 %>
                
-                <p class="text-center mt-5"> <a herf="" class="btn btn-warning">Registrarse</a></p>
+                <p class="text-center mt-5"><a href="ControllerRegister" class="btn btn-warning">Registrarse</a></p>
             </div>
         </div>
         <script src="https://kit.fontawesome.com/201886318c.js" crossorigin="anonymous"></script>

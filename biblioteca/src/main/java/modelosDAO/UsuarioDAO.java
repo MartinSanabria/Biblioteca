@@ -45,9 +45,8 @@ public class UsuarioDAO implements DML<Usuario>{
                 usuario.setApellidos(rs.getString(3));
                 usuario.setUsername(rs.getString(4));
                 usuario.setEstado(rs.getString(5));
-//                String clave = encrip.desencriptar(rs.getString(6));
-//                usuario.setPasswordUser(clave);
-                usuario.setPasswordUser(rs.getString(6));
+                String clave = encrip.desencriptar(rs.getString(6));
+                usuario.setPasswordUser(clave);
                 usuario.setRol(rs.getInt(7));
                 
                 lUsuario.add(usuario);
@@ -61,7 +60,29 @@ public class UsuarioDAO implements DML<Usuario>{
 
     @Override
     public String insert(Usuario objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String msj = "";
+        String sql = "INSERT INTO usuario (nombres, apellidos, username, estado, password_user, id_rol) VALUES (?, ?, ?, ?, ?, ?)";
+        try { 
+            con=CN.getConnection();
+            ps=con.prepareStatement(sql);
+
+            // Establece los valores para los signos de interrogación
+            ps.setString(1, objeto.getNombres());  // Reemplaza "valor-2" con el valor real
+            ps.setString(2, objeto.getApellidos());  // Reemplaza "valor-3" con el valor real
+            ps.setString(3, objeto.getUsername());  // Reemplaza "valor-4" con el valor real
+            ps.setString(4, objeto.getEstado());  // Reemplaza "valor-5" con el valor real
+            ps.setString(5, objeto.getPasswordUser());  // Reemplaza "valor-6" con el valor real
+            ps.setInt(6, objeto.getRol());  // Reemplaza valor-7 con el valor real
+
+            int filasAfectadas = ps.executeUpdate();
+
+            if (filasAfectadas > 0) {
+                msj = "insertado";
+            }
+        } catch (Exception e) {
+            msj = "Error "+e.toString();
+        }
+        return msj;
     }
 
     @Override

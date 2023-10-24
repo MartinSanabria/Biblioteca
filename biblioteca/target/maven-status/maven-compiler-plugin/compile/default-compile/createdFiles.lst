@@ -1,2 +1,4 @@
+controllers\ControllerAlumLibro.class
 controllers\ControllerLogin.class
 controllers\LibroController.class
+controllers\ControllerRegister.class

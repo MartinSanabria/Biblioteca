@@ -13,7 +13,6 @@ public class Usuario {
     private String nombres;
     private String apellidos;
     private String username;
-    private String tipo_usuario;
     private String password_user;
     private String estado;
     private int rol;
@@ -23,12 +22,11 @@ public class Usuario {
 
     
     // Constructor para update
-    public Usuario(int id_usuario, String nombres, String apellidos, String username, String tipo_usuario, String password_user, String estado, int rol) {
+    public Usuario(int id_usuario, String nombres, String apellidos, String username, String password_user, String estado, int rol) {
         this.id_usuario = id_usuario;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.username = username;
-        this.tipo_usuario = tipo_usuario;
         this.password_user = password_user;
         this.estado = estado;
         this.rol = rol;
@@ -36,11 +34,10 @@ public class Usuario {
     
     // Constructor para insert
 
-    public Usuario(String nombres, String apellidos, String username, String tipo_usuario, String password_user, String estado, int rol) {
+    public Usuario(String nombres, String apellidos, String username, String password_user, String estado, int rol) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.username = username;
-        this.tipo_usuario = tipo_usuario;
         this.password_user = password_user;
         this.estado = estado;
         this.rol = rol;
@@ -86,14 +83,6 @@ public class Usuario {
         this.username = username;
     }
 
-    public String getTipoUsuario() {
-        return tipo_usuario;
-    }
-
-    public void setTipoUsuario(String tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
-    }
-
     public String getPasswordUser() {
         return password_user;
     }
@@ -108,14 +97,6 @@ public class Usuario {
 
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
-    }
-
-    public String getTipo_usuario() {
-        return tipo_usuario;
-    }
-
-    public void setTipo_usuario(String tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
     }
 
     public String getPassword_user() {
