@@ -16,9 +16,14 @@ public class Usuario {
     private String tipo_usuario;
     private String password_user;
     private String estado;
+    private int rol;
 
+    public Usuario() {
+    }
+
+    
     // Constructor para update
-    public Usuario(int id_usuario, String nombres, String apellidos, String username, String tipo_usuario, String password_user, String estado) {
+    public Usuario(int id_usuario, String nombres, String apellidos, String username, String tipo_usuario, String password_user, String estado, int rol) {
         this.id_usuario = id_usuario;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -26,17 +31,19 @@ public class Usuario {
         this.tipo_usuario = tipo_usuario;
         this.password_user = password_user;
         this.estado = estado;
+        this.rol = rol;
     }
     
     // Constructor para insert
 
-    public Usuario(String nombres, String apellidos, String username, String tipo_usuario, String password_user, String estado) {
+    public Usuario(String nombres, String apellidos, String username, String tipo_usuario, String password_user, String estado, int rol) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.username = username;
         this.tipo_usuario = tipo_usuario;
         this.password_user = password_user;
         this.estado = estado;
+        this.rol = rol;
     }
 
      // Constructor para delete
@@ -126,4 +133,13 @@ public class Usuario {
     public void setEstado(String estado) {
         this.estado = estado;
     }   
+
+    public int getRol() {
+        return rol;
+    }
+
+    public void setRol(int rol) {
+        this.rol = rol;
+    }
+    
 }

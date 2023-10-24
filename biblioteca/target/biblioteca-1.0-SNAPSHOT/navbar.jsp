@@ -28,6 +28,13 @@
               <span class="visually-hidden">unread messages</span>
             </span>
         </a>
-        <a class="btn btn-danger" href="ControllerLogin?action=deleteSesion"> <i class="fa-solid fa-right-from-bracket" style="font-size: 20px;"></i></a>
+        
+        <% if (session.getAttribute("usuario") != null) { %>
+            <a class="btn btn-danger" href="ControllerLogin?action=close"> <%= session.getAttribute("usuario") %>
+                <i class="fa-solid fa-right-from-bracket" style="font-size: 20px;"></i></a>
+        <% } else { %>
+            <a class="btn btn-warning" href="ControllerLogin?action=close"> <i class="fa-solid fa-user" style="font-size: 20px;"></i></a>
+        <% } %>
+        
     </div>
 </nav>
