@@ -113,6 +113,7 @@ public class LibroDAO {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 categoria.setIdCategoria(rs.getInt("idcategoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
                 categoria.setEstado(rs.getString("estado"));
@@ -135,6 +136,12 @@ public class LibroDAO {
 =======
 
 >>>>>>> 4a537dd (Correciones)
+=======
+                categoria.setId_categoria((rs.getInt("idcategoria")));
+                categoria.setNombre(rs.getString("nombre_categoria"));
+                categoria.setEstado(rs.getString("estado"));
+                categoria.setEdicion(rs.getString("edicion"));
+>>>>>>> a24b303 (Conflictos)
             
             }
 
