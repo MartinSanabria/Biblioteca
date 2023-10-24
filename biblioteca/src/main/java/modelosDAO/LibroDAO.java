@@ -113,10 +113,15 @@ public class LibroDAO {
                 categoria.setIdCategoria(rs.getInt("idcategoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
 >>>>>>> 2ccd390 (Modificacion vistas libro)
+=======
+                categoria.setEstado(rs.getString("estado"));
+                categoria.setEdicion(rs.getString("edicion"));
+>>>>>>> bb5e55e (merge categorias)
             
             }
 
