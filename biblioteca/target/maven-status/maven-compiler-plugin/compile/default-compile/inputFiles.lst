@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Encode.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\CategoriaDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\RolesDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Usuario.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Prestamo.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Categoria.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\com\mycompany\biblioteca\resources\JakartaEE8Resource.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Roles.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\db\cn.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\PrestamoDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\DetallePrestamoDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\LibroDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\DetallePrestamo.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\DML.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\UsuarioDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\com\mycompany\biblioteca\JakartaRestConfiguration.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Libro.java
+=======
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/LibroDAO.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/DetallePrestamoDAO.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/DetallePrestamo.java
@@ -16,3 +35,4 @@
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/Prestamo.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/Libro.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/DML.java
+>>>>>>> 65e2b2c38e63727242faabffeabc3d50d0ecc0b2
