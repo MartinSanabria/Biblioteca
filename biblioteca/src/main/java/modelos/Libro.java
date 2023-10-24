@@ -17,6 +17,11 @@ public class Libro {
     private String foto;
     private int id_categoria;
 
+    public Libro() {
+        
+    }
+
+    
     // Constructor para update
     public Libro(int id_libro, String nombre, String autor, int cantidad, String foto, int id_categoria, String estado) {
         this.id_libro = id_libro;
@@ -36,11 +41,6 @@ public class Libro {
         this.foto = foto;
         this.id_categoria = id_categoria;
         this.estado = estado;
-    }
-    
-    // Constructor para delete
-    public Libro(int id_libro) {
-        this.id_libro = id_libro;
     }
     
     
