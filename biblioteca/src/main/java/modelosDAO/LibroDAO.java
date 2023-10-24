@@ -65,8 +65,13 @@ public class LibroDAO {
             rs=ps.executeQuery();
             while(rs.next()){
                 Categoria categoria=new Categoria();
+<<<<<<< HEAD
                 categoria.setId_categoria(rs.getInt("id_categoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
+=======
+                categoria.setIdCategoria(rs.getInt("id_categoria"));
+                categoria.setNombre(rs.getString("nombre"));
+>>>>>>> f08d936 (Creacion de metodos libros)
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
                 lista.add(categoria);
@@ -101,15 +106,18 @@ public class LibroDAO {
         return libro;
     }
     
-    public Categoria consultarPorCategoria(int idcategoria){
+   public Categoria consultarPorCategoria(int idcategoria){
 
-       this.sql="select * from categoria where id_categoria=?";
-        Categoria categoria=new Categoria();
+        this.sql = "select * from categoria where id_categoria=?";
+        Categoria categoria = new Categoria();
+
         try {
-            ps=this.CN.getConnection().prepareStatement(this.sql);
-            ps.setInt(1,idcategoria);
-            rs=ps.executeQuery();
+            ps = this.CN.getConnection().prepareStatement(this.sql);
+            ps.setInt(1, idcategoria);
+            rs = ps.executeQuery();
+
             while (rs.next()){
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -154,13 +162,21 @@ public class LibroDAO {
 >>>>>>> bb5e55e (merge categorias)
 >>>>>>> b4d848d (Cambios remotos)
             
+=======
+                categoria.setIdCategoria(rs.getInt("id_categoria"));  // Asegúrate de que los nombres coincidan
+                categoria.setNombre(rs.getString("nombre"));
+                categoria.setEstado(rs.getString("estado"));
+                categoria.setEdicion(rs.getString("edicion"));
+>>>>>>> f08d936 (Creacion de metodos libros)
             }
 
-        }catch (Exception e){
-
+        } catch (Exception e) {
+            e.printStackTrace();  // Agrega esta línea para imprimir la traza de la excepción
         }
+
         return categoria;
     }
+
        
      public boolean agregar(Libro libro){
         this.sql="insert into libros(nombre, autor, cantidad, foto, estado, id_categoria) values(?,?,?,?,?,?)";
