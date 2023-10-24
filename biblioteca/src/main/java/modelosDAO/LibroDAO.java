@@ -114,6 +114,7 @@ public class LibroDAO {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 categoria.setIdCategoria(rs.getInt("idcategoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
 <<<<<<< HEAD
@@ -161,7 +162,20 @@ public class LibroDAO {
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
 >>>>>>> a24b303 (Conflictos)
+<<<<<<< HEAD
 >>>>>>> 766d314 (Conflictos)
+=======
+=======
+                categoria.setId_categoria(rs.getInt("idcategoria"));
+                categoria.setNombre(rs.getString("nombre_categoria"));
+=======
+                categoria.setIdCategoria(rs.getInt("idcategoria"));
+                categoria.setNombre(rs.getString("nombre_categoria"));
+                categoria.setEstado(rs.getString("estado"));
+                categoria.setEdicion(rs.getString("edicion"));
+>>>>>>> bb5e55e (merge categorias)
+>>>>>>> b4d848d (Cambios remotos)
+>>>>>>> 57836d9 (Cambios remotos)
             
             }
 
