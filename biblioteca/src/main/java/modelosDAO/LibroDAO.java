@@ -112,6 +112,7 @@ public class LibroDAO {
             while (rs.next()){
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 categoria.setIdCategoria(rs.getInt("idcategoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
 <<<<<<< HEAD
@@ -134,16 +135,23 @@ public class LibroDAO {
 >>>>>>> 85fcaab (Adding create category and deactivate category)
 =======
 =======
+=======
+>>>>>>> 4a537dd (Correciones)
                 categoria.setId_categoria(rs.getInt("idcategoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
-=======
-                categoria.setIdCategoria(rs.getInt("idcategoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
+<<<<<<< HEAD
 >>>>>>> 2ccd390 (Modificacion vistas libro)
 >>>>>>> 733ec75 (Rebase merge)
+<<<<<<< HEAD
 >>>>>>> a7af617 (Rebase merge)
+=======
+=======
+
+>>>>>>> 4a537dd (Correciones)
+>>>>>>> 9fa8a4a (Correciones)
             
             }
 
