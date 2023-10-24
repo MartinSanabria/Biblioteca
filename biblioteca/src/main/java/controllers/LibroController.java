@@ -65,24 +65,52 @@ public class LibroController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
+        try {
+           if(request.getParameter("action")!=null){
+                if(request.getParameter("action").equals("edit")){
+                int idproducto=Integer.parseInt(request.getParameter("id"));
+
+                 //falta traer la persona de la base de datos
+                 //y pasarlo como atributo
+                RequestDispatcher dispatcher2=request.getRequestDispatcher("/LibrosView/edit.jsp");
+                dispatcher2.forward(request,response);
+                } else if (request.getParameter("action").equals("new")){
+                    LibroDAO libros = new LibroDAO();
+                    
+                    List<Categoria> categorias = libros.ConsultaCategoria();
+
+                    request.setAttribute("categorias", categorias);
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/LibrosView/create.jsp");
+
+            // Envía la solicitud al dispatcher.
+            dispatcher.forward(request, response);
+                }
+           }
+        } catch (Exception e) {
+            e.printStackTrace(); //
+        }
+        
             LibroDAO libros = new LibroDAO();
-            
             List<Libro> libroList = libros.ConsultaLibros();
-           Map<Integer, Map<String, String>> librosData = new HashMap<>();
 
-            for (Libro libro : libroList) {
-                // Obtener nombre de categoría
-                Categoria categoria = (Categoria) libros.consultarPorCategoria(libro.getIdCategoria());
-                String nombreCategoria = categoria.getNombre();
+            // Mapa para almacenar información adicional de libros
+            Map<Integer, Map<String, String>> librosData = new HashMap<>();
 
-                Map<String, String> libroData = new HashMap<>();
-                libroData.put("nombreCategoria", nombreCategoria);
+           for (Libro libro : libroList) {
+            // Obtener nombre de la categoría
+            Categoria categoria = libros.consultarPorCategoria(libro.getIdCategoria());
+            String nombreCategoria = (categoria != null) ? categoria.getNombre() : "";
 
-                librosData.put(libro.getIdLibro(), libroData);
-            }
+            Map<String, String> libroData = new HashMap<>();
+            libroData.put("nombreCategoria", nombreCategoria);
 
-            request.setAttribute("libroData", librosData);
+            librosData.put(libro.getId_libro(), libroData);
 
+        }
+
+            request.setAttribute("librosData", librosData);
             request.setAttribute("libros", libroList);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/LibrosView/libros.jsp");
              // Envía la solicitud al dispatcher.

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 controllers\ControllerAlumLibro.class
 controllers\ControllerLogin.class
 controllers\LibroController.class
@@ -7,6 +8,8 @@ controllers\ControllerRegister.class
 =======
 =======
 >>>>>>> 85fcaab (Adding create category and deactivate category)
+=======
+>>>>>>> 9e24dfa (Creacion de metodos libros)
 db\cn.class
 modelos\Categoria.class
 modelos\DetallePrestamo.class
@@ -27,6 +30,12 @@ modelos\Roles.class
 modelosDAO\RolesDAO.class
 modelosDAO\LibroDAO.class
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 3a13672 (Pushing my branch)
 =======
 >>>>>>> 85fcaab (Adding create category and deactivate category)
+=======
+=======
+controllers/LibroController.class
+>>>>>>> f08d936 (Creacion de metodos libros)
+>>>>>>> 9e24dfa (Creacion de metodos libros)
