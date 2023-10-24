@@ -12,11 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 import modelos.Categoria;
 
+
 /**
  *
  * @author Alejandro
  */
-public class CategoriaDAO implements DML<Categoria>{
+public class CategoriaDAO {
 
     private cn CN;
     private Connection con;
@@ -32,90 +33,76 @@ public class CategoriaDAO implements DML<Categoria>{
         }
     }
     
-    public List<Categoria> ObtenerCategorias(){
-        List<Categoria> lista=new ArrayList<>();
-        
-        try{
-            this.sql="SELECT * FROM categoria";
+     public List ObtenerCategorias(){
+
+        ArrayList<Categoria> lista=new ArrayList<>();
+        this.sql="select * from categoria";
+        try {
             ps=this.CN.getConnection().prepareStatement(this.sql);
             rs=ps.executeQuery();
-            while (rs.next()){
+            while(rs.next()){
                 Categoria categoria=new Categoria();
-   
-                categoria.setIdCategoria(rs.getInt("id_categoria"));
+                categoria.setId_categoria(rs.getInt("id_categoria"));
                 categoria.setNombre(rs.getString("nombre"));
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
                 lista.add(categoria);
             }
         }catch (Exception e){
+
         }
-       
         return lista;
     }
     
-    @Override
-    public String insert(Categoria objeto) {
-        String msj = "";
-        String sql="INSERT INTO categoria (nombre, estado, edicion) VALUES (?, ?, ?);";
+    public boolean insert(Categoria categoria){
+        this.sql="insert into categoria(nombre, estado, edicion) values(?,?,?)";
+        
         try {
-            con=CN.getConnection();
-            ps=con.prepareStatement(sql);
-            ps.setString(1, objeto.getNombre());
-            ps.setString(2, objeto.getEstado());
-            ps.setString(3, objeto.getEdicion());
-            
-            
-            int filasAfectadas=ps.executeUpdate();
-            
-            if (filasAfectadas > 0) {
-                msj = "Ingresado";
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            ps.setString(1,categoria.getNombre());
+            ps.setString(2,categoria.getEstado());
+            ps.setString(3,categoria.getEdicion());
+           int filasAfectadas=ps.executeUpdate();
+            if(filasAfectadas>0){
+                return true;
             }
         }catch (Exception e){
-            msj = "Error"+e.toString();
+
         }
-        return msj;
+        return false;
     }
 
-    @Override
-    public String delete(int id) {
-        String msj = "";
-        String sql = "DELETE FROM categoria WHERE id_categoria = ?";
+    public boolean actualizar(Categoria categoria){
+        this.sql="update categoria set nombre=?,estado=?,edicion=? where id_categoria=?";
         try {
-            con=CN.getConnection();
-            ps=con.prepareStatement(sql);
+           ps=this.CN.getConnection().prepareStatement(this.sql);
+            ps.setString(1,categoria.getNombre());
+            ps.setString(2,categoria.getEstado());
+            ps.setString(3,categoria.getEdicion());
+            ps.setInt(4,categoria.getId_categoria());
+            int filasAfectadas=ps.executeUpdate();
+            if(filasAfectadas>0){
+                return true;
+            }
+        }catch (Exception e){
+
+        }
+        return false;
+    }
+    
+     public boolean eliminar(int id){
+        this.sql="update categoria set estado=0 where id_categoria=?";
+        try {
+            ps=this.CN.getConnection().prepareStatement(this.sql);
             ps.setInt(1,id);
             int filasAfectadas=ps.executeUpdate();
-            if (filasAfectadas > 0) {
-                msj = "Eliminado";
+            if(filasAfectadas>0){
+                return true;
             }
         }catch (Exception e){
-            msj = "Error"+e.toString();
-        }
-        return msj;
-    }
 
-    @Override
-    public String update(Categoria objeto) {
-        String msj = "";
-        String sql="UPDATE categoria SET nombre = ?, estado = ?, edicion = ? WHERE id_categoria = ?;";
-        try {
-            con=CN.getConnection();
-            ps=con.prepareStatement(sql);
-            ps.setString(1,objeto.getNombre());
-            ps.setString(2, objeto.getEstado());
-            ps.setString(3, objeto.getEdicion());
-            ps.setInt(2, objeto.getIdCategoria());
-            
-            int filasAfectadas=ps.executeUpdate();
-            
-            if (filasAfectadas > 0) {
-                msj = "Actualizado";
-            }
-        }catch (Exception e){
-            msj = "Error"+e.toString();
         }
-        return msj;
+        return false;
     }
     
 }

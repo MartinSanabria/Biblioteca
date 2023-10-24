@@ -65,7 +65,7 @@ public class LibroDAO {
             rs=ps.executeQuery();
             while(rs.next()){
                 Categoria categoria=new Categoria();
-                categoria.setIdCategoria(rs.getInt("id_categoria"));
+                categoria.setId_categoria(rs.getInt("id_categoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
@@ -110,8 +110,8 @@ public class LibroDAO {
             ps.setInt(1,idcategoria);
             rs=ps.executeQuery();
             while (rs.next()){
-                categoria.setIdcategoria(rs.getInt("idcategoria"));
-                categoria.setNombre_categoria(rs.getString("nombre_categoria"));
+                categoria.setId_categoria(rs.getInt("idcategoria"));
+                categoria.setNombre(rs.getString("nombre_categoria"));
             
             }
 

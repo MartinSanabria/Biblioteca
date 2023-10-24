@@ -22,57 +22,75 @@ public class Categoria {
     public Categoria(int id_categoria, String nombre, String estado, String edicion) {
         this.id_categoria = id_categoria;
         this.nombre = nombre;
-        this.edicion = edicion;
         this.estado = estado;
+        this.edicion = edicion;
+        
     }
     
     // Constructor para insert
 
     public Categoria(String nombre, String estado, String edicion) {
         this.nombre = nombre;
-        this.edicion = edicion;
         this.estado = estado;
+        this.edicion = edicion;
+        
     }
-    
-    // Constructor para delete
 
-    public Categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
-    }
-    
-
-    // Getters and Setters
-    public int getIdCategoria() {
+    /**
+     * @return the id_categoria
+     */
+    public int getId_categoria() {
         return id_categoria;
     }
 
-    public void setIdCategoria(int id_categoria) {
+    /**
+     * @param id_categoria the id_categoria to set
+     */
+    public void setId_categoria(int id_categoria) {
         this.id_categoria = id_categoria;
     }
 
+    /**
+     * @return the nombre
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * @param nombre the nombre to set
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getEdicion() {
-        return edicion;
-    }
-
-    public void setEdicion(String edicion) {
-        this.edicion = edicion;
-    }
-
-
+    /**
+     * @return the estado
+     */
     public String getEstado() {
         return estado;
     }
 
+    /**
+     * @param estado the estado to set
+     */
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    /**
+     * @return the edicion
+     */
+    public String getEdicion() {
+        return edicion;
+    }
+
+    /**
+     * @param edicion the edicion to set
+     */
+    public void setEdicion(String edicion) {
+        this.edicion = edicion;
+    }
+    
     
 }

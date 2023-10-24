@@ -31,8 +31,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="../admin/verCategorias.jsp">Ver categorias</a></li>
-                        <li><a class="dropdown-item" href="../admin/categorias.jsp">Agregar categorias</a></li>
+                        <li><a class="dropdown-item" href="/biblioteca/CategoriaController">Ver categorias</a></li>
+                        <li><a class="dropdown-item" href="/biblioteca/admin/categorias.jsp">Agregar categorias</a></li>
                     </ul>
                 </li>             
             </ul>             

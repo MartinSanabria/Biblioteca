@@ -1,9 +1,10 @@
-<<<<<<< HEAD
 db\cn.class
 modelos\Categoria.class
 modelos\DetallePrestamo.class
 modelos\Usuario.class
 modelosDAO\DML.class
+controllers\LibroController.class
+controllers\CategoriaController.class
 modelos\Libro.class
 modelosDAO\UsuarioDAO.class
 modelosDAO\CategoriaDAO.class
@@ -16,6 +17,3 @@ modelos\Encode.class
 modelos\Roles.class
 modelosDAO\RolesDAO.class
 modelosDAO\LibroDAO.class
-=======
-controllers/LibroController.class
->>>>>>> 65e2b2c38e63727242faabffeabc3d50d0ecc0b2

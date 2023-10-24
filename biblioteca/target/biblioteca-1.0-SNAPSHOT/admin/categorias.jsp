@@ -28,7 +28,7 @@
             <!-- Start Card Body -->
             <div class="card-body">
                 <!-- Start Form -->
-                <form id="bookForm" action="#" method="" >
+                <form action="/biblioteca/CategoriaController"  method="post" >
                     <!-- Start Input Name -->
                     <div class="form-group">
                         <label for="inputName">Nombre categoria</label>
@@ -41,7 +41,7 @@
                     <div class="form-group">
                         <label for="inputEmail">Email</label>
                         <select type="text" class="form-control" id="selectEstado" name="estado" placeholder="Seleccione el estado"  required>
-                            <option value="Activo">Activo</option>
+                            <option value="1">Activo</option>
                         </select>
                         <small class="form-text text-muted">Estado activo por ser una categoria nueva.</small>
                     </div>
