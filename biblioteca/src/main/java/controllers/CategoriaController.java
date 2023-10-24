@@ -27,7 +27,6 @@ import modelosDAO.LibroDAO;
 @WebServlet(name = "CategoriaController", urlPatterns = {"/CategoriaController"})
 public class CategoriaController extends HttpServlet {
 
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,7 +44,7 @@ public class CategoriaController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CategoriaController</title>");            
+            out.println("<title>Servlet CategoriaController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CategoriaController at " + request.getContextPath() + "</h1>");
@@ -67,12 +66,12 @@ public class CategoriaController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CategoriaDAO categoria = new CategoriaDAO();
-            
-            List<Categoria> categoriaList = categoria.ObtenerCategorias();  
-            request.setAttribute("categorias", categoriaList);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/verCategorias.jsp");
-             // Envía la solicitud al dispatcher.
-            dispatcher.forward(request, response);
+
+        List<Categoria> categoriaList = categoria.ObtenerCategorias();
+        request.setAttribute("categorias", categoriaList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/verCategorias.jsp");
+        // Envía la solicitud al dispatcher.
+        dispatcher.forward(request, response);
     }
 
     /**
@@ -86,18 +85,20 @@ public class CategoriaController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           
-        
-            CategoriaDAO categoria=new CategoriaDAO(); 
-            if(request.getParameter("action").equals("deactivate")){
-                categoria.eliminar(Integer.parseInt(request.getParameter("id")));
-            }else{
-                Categoria  prov=new Categoria(request.getParameter("name"),request.getParameter("estado"),request.getParameter("edicion"));
-            categoria.insert(prov);
-            }
-            
 
-            doGet(request,response);
+        CategoriaDAO categoria = new CategoriaDAO();
+        if (request.getParameter("action").equals("deactivate")) {
+            categoria.eliminar(Integer.parseInt(request.getParameter("id")));
+        } else if (request.getParameter("action").equals("activate")) {
+            categoria.activar(Integer.parseInt(request.getParameter("id")));
+        }
+        else {
+            Categoria  prov=new Categoria(request.getParameter("name"),request.getParameter("estado"),request.getParameter("edicion"));
+            categoria.insert(prov);
+        }
+        
+
+        doGet(request, response);
     }
 
     /**
