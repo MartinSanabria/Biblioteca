@@ -103,15 +103,17 @@ public class LibroDAO {
     
     public Categoria consultarPorCategoria(int idcategoria){
 
-       this.sql="select * from categorias where idcategoria=?";
+       this.sql="select * from categoria where id_categoria=?";
         Categoria categoria=new Categoria();
         try {
             ps=this.CN.getConnection().prepareStatement(this.sql);
             ps.setInt(1,idcategoria);
             rs=ps.executeQuery();
             while (rs.next()){
-                categoria.setIdcategoria(rs.getInt("idcategoria"));
-                categoria.setNombre_categoria(rs.getString("nombre_categoria"));
+                categoria.setIdCategoria(rs.getInt("idcategoria"));
+                categoria.setNombre(rs.getString("nombre_categoria"));
+                categoria.setEstado(rs.getString("estado"));
+                categoria.setEdicion(rs.getString("edicion"));
             
             }
 
