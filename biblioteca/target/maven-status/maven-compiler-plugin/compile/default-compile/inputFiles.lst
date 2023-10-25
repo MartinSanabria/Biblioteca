@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Encode.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\controllers\CategoriaController.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\CategoriaDAO.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\RolesDAO.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Usuario.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Prestamo.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Categoria.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\com\mycompany\biblioteca\resources\JakartaEE8Resource.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Roles.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\db\cn.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\PrestamoDAO.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\DetallePrestamoDAO.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\LibroDAO.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\controllers\LibroController.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\DetallePrestamo.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\DML.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\UsuarioDAO.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\com\mycompany\biblioteca\JakartaRestConfiguration.java
-C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Libro.java
-=======
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/LibroDAO.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/DetallePrestamoDAO.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/DetallePrestamo.java
@@ -26,6 +5,7 @@ C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\ma
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/Categoria.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/com/mycompany/biblioteca/resources/JakartaEE8Resource.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/com/mycompany/biblioteca/JakartaRestConfiguration.java
+/Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/controllers/CategoriaController.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/RolesDAO.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/Roles.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/PrestamoDAO.java
@@ -37,4 +17,7 @@ C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\ma
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/Prestamo.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/Libro.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/DML.java
+<<<<<<< HEAD
 >>>>>>> f08d936 (Creacion de metodos libros)
+=======
+>>>>>>> 668d7f2 (Crud completo de libros)
