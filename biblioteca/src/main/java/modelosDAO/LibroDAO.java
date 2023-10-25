@@ -67,10 +67,6 @@ public class LibroDAO {
                 Categoria categoria=new Categoria();
                 categoria.setId_categoria(rs.getInt("id_categoria"));
                 categoria.setNombre(rs.getString("nombre"));
-<<<<<<< HEAD
->>>>>>> f08d936 (Creacion de metodos libros)
-=======
->>>>>>> 668d7f2 (Crud completo de libros)
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
                 lista.add(categoria);
@@ -109,97 +105,17 @@ public class LibroDAO {
 
         this.sql = "select * from categoria where id_categoria=?";
         Categoria categoria = new Categoria();
-<<<<<<< HEAD
-
-=======
->>>>>>> 668d7f2 (Crud completo de libros)
         try {
             ps = this.CN.getConnection().prepareStatement(this.sql);
             ps.setInt(1, idcategoria);
             rs = ps.executeQuery();
 
             while (rs.next()){
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                categoria.setIdCategoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
-<<<<<<< HEAD
->>>>>>> 2ccd390 (Modificacion vistas libro)
-=======
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
->>>>>>> bb5e55e (merge categorias)
-=======
-=======
-                categoria.setId_categoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
->>>>>>> 4415093 (Adding create category and deactivate category)
-<<<<<<< HEAD
->>>>>>> 85fcaab (Adding create category and deactivate category)
-=======
-=======
-=======
->>>>>>> 4a537dd (Correciones)
-                categoria.setId_categoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
-<<<<<<< HEAD
->>>>>>> 2ccd390 (Modificacion vistas libro)
->>>>>>> 733ec75 (Rebase merge)
-<<<<<<< HEAD
->>>>>>> a7af617 (Rebase merge)
-=======
-=======
 
->>>>>>> 4a537dd (Correciones)
-<<<<<<< HEAD
->>>>>>> 9fa8a4a (Correciones)
-=======
-=======
-                categoria.setId_categoria((rs.getInt("idcategoria")));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
->>>>>>> a24b303 (Conflictos)
-<<<<<<< HEAD
->>>>>>> 766d314 (Conflictos)
-=======
-=======
-                categoria.setId_categoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-=======
-                categoria.setIdCategoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
->>>>>>> bb5e55e (merge categorias)
->>>>>>> b4d848d (Cambios remotos)
->>>>>>> 57836d9 (Cambios remotos)
-            
-=======
-                categoria.setIdCategoria(rs.getInt("id_categoria"));  // Asegúrate de que los nombres coincidan
-                categoria.setNombre(rs.getString("nombre"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
->>>>>>> f08d936 (Creacion de metodos libros)
-=======
-                categoria.setId_categoria(rs.getInt("id_categoria"));
-                categoria.setNombre(rs.getString("nombre"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
->>>>>>> 668d7f2 (Crud completo de libros)
+            categoria.setId_categoria(rs.getInt("id_categoria"));
+            categoria.setNombre(rs.getString("nombre"));
+            categoria.setEstado(rs.getString("estado"));
+            categoria.setEdicion(rs.getString("edicion"));
             }
 
         } catch (Exception e) {
