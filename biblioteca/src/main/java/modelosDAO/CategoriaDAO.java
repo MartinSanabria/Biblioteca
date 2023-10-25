@@ -117,5 +117,29 @@ public class CategoriaDAO {
         }
         return false;
     }
+    
+    public Categoria buscarPorId(int idcategoria){
+
+       this.sql="select id_categoria, nombre, edicion from categoria where id_categoria=?";
+        Categoria categoria=new Categoria();
+
+        try {
+            ps = this.CN.getConnection().prepareStatement(this.sql);
+            ps.setInt(1, idcategoria);
+            rs = ps.executeQuery();
+
+            while (rs.next()){
+            categoria.setId_categoria(rs.getInt("id_categoria"));
+            categoria.setNombre(rs.getString("nombre"));
+            categoria.setEdicion(rs.getString("edicion"));
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();  // Agrega esta línea para imprimir la traza de la excepción
+        }
+
+        return categoria;
+    }
 
 }

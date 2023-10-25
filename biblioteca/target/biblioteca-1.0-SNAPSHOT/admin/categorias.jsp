@@ -31,7 +31,7 @@
             <!-- Start Card Body -->
             <div class="card-body">
                 <!-- Start Form -->
-                <form action="/biblioteca/CategoriaController"  method="post" >
+                <form action="/biblioteca/CategoriaController?action=create"  method="post" >
                     <!-- Start Input Name -->
                     <div class="form-group">
                         <label for="inputName">Nombre categoria</label>

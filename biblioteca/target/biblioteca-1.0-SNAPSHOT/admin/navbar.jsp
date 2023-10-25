@@ -28,7 +28,7 @@
                     <a class="nav-link" href="">Usuarios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Libros</a>
+                    <a class="nav-link" href="/biblioteca/LibroController">Libros</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</a>
@@ -39,6 +39,7 @@
                 </li>             
             </ul>             
         </div>
-        <a class="btn btn-danger" href="ControllerLogin?action=deleteSesion"> <i class="fa-solid fa-right-from-bracket" style="font-size: 20px;"></i></a>
+        <a class="btn btn-danger" href="ControllerLogin?action=close"> <%= session.getAttribute("usuario") %>
+                <i class="fa-solid fa-right-from-bracket" style="font-size: 20px;"></i></a>
     </div>
 </nav>

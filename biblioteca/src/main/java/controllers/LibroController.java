@@ -65,24 +65,56 @@ public class LibroController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
+        try {
+           if(request.getParameter("action")!=null){
+                if(request.getParameter("action").equals("edit")){
+                    int idLibro=Integer.parseInt(request.getParameter("id"));
+                    LibroDAO libros = new LibroDAO();
+                    Libro librofound = libros.buscarPorID(idLibro);
+                    request.setAttribute("libroEdit", librofound);
+                    
+                    List<Categoria> categorias = libros.ConsultaCategoria();
+
+                    request.setAttribute("categorias", categorias);
+                RequestDispatcher dispatcher2=request.getRequestDispatcher("/LibrosView/edit.jsp");
+                dispatcher2.forward(request,response);
+                } else if (request.getParameter("action").equals("new")){
+                    LibroDAO libros = new LibroDAO();
+                    
+                    List<Categoria> categorias = libros.ConsultaCategoria();
+
+                    request.setAttribute("categorias", categorias);
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/LibrosView/create.jsp");
+
+            // Envía la solicitud al dispatcher.
+            dispatcher.forward(request, response);
+                }
+           }
+        } catch (Exception e) {
+            e.printStackTrace(); //
+        }
+        
             LibroDAO libros = new LibroDAO();
-            
             List<Libro> libroList = libros.ConsultaLibros();
-           Map<Integer, Map<String, String>> librosData = new HashMap<>();
 
-            for (Libro libro : libroList) {
-                // Obtener nombre de categoría
-                Categoria categoria = (Categoria) libros.consultarPorCategoria(libro.getIdCategoria());
-                String nombreCategoria = categoria.getNombre();
+            // Mapa para almacenar información adicional de libros
+            Map<Integer, Map<String, String>> librosData = new HashMap<>();
 
-                Map<String, String> libroData = new HashMap<>();
-                libroData.put("nombreCategoria", nombreCategoria);
+           for (Libro libro : libroList) {
+            // Obtener nombre de la categoría
+            Categoria categoria = libros.consultarPorCategoria(libro.getId_categoria());
+            String nombreCategoria = (categoria != null) ? categoria.getNombre() : "";
 
-                librosData.put(libro.getIdLibro(), libroData);
-            }
+            Map<String, String> libroData = new HashMap<>();
+            libroData.put("nombreCategoria", nombreCategoria);
 
-            request.setAttribute("libroData", librosData);
+            librosData.put(libro.getId_libro(), libroData);
 
+        }
+
+            request.setAttribute("librosData", librosData);
             request.setAttribute("libros", libroList);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/LibrosView/libros.jsp");
              // Envía la solicitud al dispatcher.
@@ -101,7 +133,75 @@ public class LibroController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        if (request.getParameter("action") != null) { 
+            if(request.getParameter("action").equals("create")){
+                LibroDAO libroControl = new LibroDAO();
+                
+                if(!request.getParameter("categoria").isEmpty()){
+                    Categoria categoFound = libroControl.consultarPorCategoria(Integer.parseInt(request.getParameter("categoria")));
+                    
+                    Libro libroNew = new Libro(request.getParameter("nombre"),request.getParameter("autor"),Integer.parseInt(request.getParameter("cantidad")),
+                            request.getParameter("imagen"), categoFound.getId_categoria(),"1"
+                    );
+                    
+                    libroControl.agregar(libroNew);
+                    
+                    String successMessage = "Libro agregado satisfactoriamente";
+
+                    request.setAttribute("successMessage", successMessage);
+                }
+                
+            } else if(request.getParameter("action").equals("update")) {
+                int idLibro=Integer.parseInt(request.getParameter("id"));
+                LibroDAO libroControl = new LibroDAO();
+                Libro libroUpdate = libroControl.buscarPorID(idLibro);
+                
+                 if(!request.getParameter("categoria").isEmpty()){
+                     libroUpdate.setNombre(request.getParameter("nombre"));
+                     libroUpdate.setAutor(request.getParameter("autor"));
+                     libroUpdate.setCantidad(Integer.parseInt(request.getParameter("cantidad")));
+                     Categoria categoFound = libroControl.consultarPorCategoria(Integer.parseInt(request.getParameter("categoria")));
+                     libroUpdate.setIdCategoria(categoFound.getId_categoria());
+
+                     if(!request.getParameter("estado").isEmpty()){ 
+                         libroUpdate.setEstado(request.getParameter("estado"));
+                     }
+                     
+                     libroUpdate.setFoto(request.getParameter("imagen"));
+                     
+                     libroControl.actualizar(libroUpdate);
+                     
+                     String successMessage = "Libro actualizado satisfactoriamente";
+
+                    request.setAttribute("successMessage", successMessage);
+                 }
+                
+                
+                
+            } else if(request.getParameter("action").equals("delete")) {
+                int idLibro=Integer.parseInt(request.getParameter("id"));
+                LibroDAO libroControl = new LibroDAO();
+                Libro librodecline = libroControl.buscarPorID(idLibro);
+                libroControl.eliminar(librodecline.getIdLibro());
+                
+                String successMessage = "Libro inactivo satisfactoriamente";
+                 
+                request.setAttribute("successMessage", successMessage);
+                
+            } else if(request.getParameter("action").equals("active")) {
+                int idLibro=Integer.parseInt(request.getParameter("id"));
+                LibroDAO libroControl = new LibroDAO();
+                Libro libroActive = libroControl.buscarPorID(idLibro);
+                libroControl.Activar(libroActive.getIdLibro());
+                
+                String successMessage = "Libro Activo satisfactoriamente";
+                 
+                request.setAttribute("successMessage", successMessage);
+            }
+            
+            
+            doGet(request,response);
+        }
     }
 
     /**

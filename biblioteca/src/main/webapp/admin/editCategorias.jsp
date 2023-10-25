@@ -23,7 +23,7 @@
         <div class="container bg-light" style="margin-top: 25px">
             
             <div class="text-center pt-5">
-            <img src="../Assets/Logo.png" alt="biblioteca-logo" width="250" height="250" />
+            <img src="/biblioteca/Assets/Logo.png" alt="biblioteca-logo" width="250" height="250" />
             <h2>Modificar una categoria</h2>
         </div>
 
@@ -31,11 +31,23 @@
             <!-- Start Card Body -->
             <div class="card-body">
                 <!-- Start Form -->
-                <form action="/biblioteca/CategoriaController"  method="post" >
+                <form action="/biblioteca/CategoriaController?action=update&id=${catEdit.getId_categoria()}"  method="post" >
                     <!-- Start Input Name -->
+                    
+                    
+                    
+                     <div class="form-group">
+                        <label>Correlativo</label>
+                        <input type="text" class="form-control" id="inputId" name="inputId" value="${catEdit.getId_categoria()}" text="${catEdit.getId_categoria()}" required readonly/>
+                        
+                    </div>
+                    
+                    
+                    
+                    
                     <div class="form-group">
                         <label>Nombre categoria</label>
-                        <input type="text" class="form-control" id="inputName" name="name"  required />
+                        <input type="text" class="form-control" id="inputName" name="name" value="${catEdit.getNombre()}" text="${catEdit.getNombre()}" required />
                         <small class="form-text text-muted">Por favor ingrese el nombre de la categoria</small>
                     </div>
                     <!-- End Input Name -->
@@ -44,7 +56,7 @@
                     <!-- Start Input Edicion -->
                     <div class="form-group">
                         <label>Nombre de la edicion</label>
-                        <input type="text" class="form-control" id="inputEdition" name="edicion" required />
+                        <input type="text" class="form-control" id="inputEdition" name="edicion" value="${catEdit.getEdicion()}" text="${catEdit.getEdicion()}" required />
 
                     </div>
 
@@ -63,31 +75,7 @@
         
 
         <script src="https://kit.fontawesome.com/201886318c.js" crossorigin="anonymous"></script>
-        <script>
-            // Function to get query parameters from the URL
-            function getQueryParam(name) {
-                const urlParams = new URLSearchParams(window.location.search);
-                return urlParams.get(name);
-            }
-
-            // Populate form fields with values from query parameters
-            window.onload = function() {
-                var idCategoria = getQueryParam("id");
-                var nombreCategoria = getQueryParam("name");
-                var edicionCategoria = getQueryParam("edicion");
-
-                
-                var inputName = document.getElementById("inputName");
-                var inputEdition = document.getElementById("inputEdition");
-              
-                // Set values to the respective form fields
-               
-                inputName.value = nombreCategoria;
-                inputEdition.value = edicionCategoria;
-                inputName.text = nombreCategoria;
-                inputEdition.text = edicionCategoria;
-            };
-        </script>
+       
     </body>
     
 </html>
