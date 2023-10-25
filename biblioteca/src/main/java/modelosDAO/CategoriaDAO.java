@@ -71,14 +71,13 @@ public class CategoriaDAO {
         return false;
     }
 
-    public boolean actualizar(Categoria categoria) {
-        this.sql = "update categoria set nombre=?,estado=?,edicion=? where id_categoria=?";
+    public boolean actualizar(String categoria, String edicion, int id) {
+        this.sql = "update categoria set nombre=?,edicion=? where id_categoria=?";
         try {
             ps = this.CN.getConnection().prepareStatement(this.sql);
-            ps.setString(1, categoria.getNombre());
-            ps.setString(2, categoria.getEstado());
-            ps.setString(3, categoria.getEdicion());
-            ps.setInt(4, categoria.getId_categoria());
+            ps.setString(1, categoria);
+            ps.setString(2, edicion);
+            ps.setInt(3, id);
             int filasAfectadas = ps.executeUpdate();
             if (filasAfectadas > 0) {
                 return true;

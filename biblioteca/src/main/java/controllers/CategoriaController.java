@@ -67,11 +67,13 @@ public class CategoriaController extends HttpServlet {
             throws ServletException, IOException {
         CategoriaDAO categoria = new CategoriaDAO();
 
+       
         List<Categoria> categoriaList = categoria.ObtenerCategorias();
-        request.setAttribute("categorias", categoriaList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/verCategorias.jsp");
+            request.setAttribute("categorias", categoriaList);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/verCategorias.jsp");
+            dispatcher.forward(request, response);
         // Envía la solicitud al dispatcher.
-        dispatcher.forward(request, response);
+       
     }
 
     /**
@@ -91,6 +93,9 @@ public class CategoriaController extends HttpServlet {
             categoria.eliminar(Integer.parseInt(request.getParameter("id")));
         } else if (request.getParameter("action").equals("activate")) {
             categoria.activar(Integer.parseInt(request.getParameter("id")));
+        }
+        else if (request.getParameter("action").equals("edit")) {
+            categoria.actualizar(request.getParameter("name"), request.getParameter("estado"), Integer.parseInt(request.getParameter("id")));
         }
         else {
             Categoria  prov=new Categoria(request.getParameter("name"),request.getParameter("estado"),request.getParameter("edicion"));
