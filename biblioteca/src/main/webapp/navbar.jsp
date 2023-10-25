@@ -16,7 +16,15 @@
                     <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link" href="">Libros</a>
+=======
+<<<<<<< HEAD
+                    <a class="nav-link" href="ControllerAlumLibro">Libros</a>
+=======
+                    <a class="nav-link" href="">Libros</a>
+>>>>>>> 9e24dfa (Creacion de metodos libros)
+>>>>>>> login/prestamo/werner
                 </li>
             </ul>             
         </div>
@@ -28,6 +36,13 @@
               <span class="visually-hidden">unread messages</span>
             </span>
         </a>
-        <a class="btn btn-danger" href="ControllerLogin?action=deleteSesion"> <i class="fa-solid fa-right-from-bracket" style="font-size: 20px;"></i></a>
+        
+        <% if (session.getAttribute("usuario") != null) { %>
+            <a class="btn btn-danger" href="ControllerLogin?action=close"> <%= session.getAttribute("usuario") %>
+                <i class="fa-solid fa-right-from-bracket" style="font-size: 20px;"></i></a>
+        <% } else { %>
+            <a class="btn btn-warning" href="ControllerLogin"> <i class="fa-solid fa-user" style="font-size: 20px;"></i></a>
+        <% } %>
+        
     </div>
 </nav>

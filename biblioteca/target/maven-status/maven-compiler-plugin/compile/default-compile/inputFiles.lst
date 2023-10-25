@@ -1,3 +1,61 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\ControllerAlumLibro.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Libro.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\DetallePrestamoDAO.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\RolesDAO.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\db\cn.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Roles.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\com\mycompany\biblioteca\resources\JakartaEE8Resource.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\ControllerLogin.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\com\mycompany\biblioteca\JakartaRestConfiguration.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Usuario.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\ControllerRegister.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\UsuarioDAO.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\LibroController.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\DetallePrestamo.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Encode.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Prestamo.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Categoria.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\CategoriaDAO.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\PrestamoDAO.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\DML.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\LibroDAO.java
+=======
+=======
+>>>>>>> 85fcaab (Adding create category and deactivate category)
+=======
+>>>>>>> 9e24dfa (Creacion de metodos libros)
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Encode.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\controllers\CategoriaController.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\CategoriaDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\RolesDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Usuario.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Prestamo.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Categoria.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\com\mycompany\biblioteca\resources\JakartaEE8Resource.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Roles.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\db\cn.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\PrestamoDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\DetallePrestamoDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\LibroDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\controllers\LibroController.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\DetallePrestamo.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\DML.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\UsuarioDAO.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\com\mycompany\biblioteca\JakartaRestConfiguration.java
+C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Libro.java
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 3a13672 (Pushing my branch)
+=======
+>>>>>>> 85fcaab (Adding create category and deactivate category)
+=======
+=======
+=======
+>>>>>>> d66b229 (Crud completo de libros)
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/LibroDAO.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/DetallePrestamoDAO.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/DetallePrestamo.java
@@ -19,5 +77,14 @@
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/DML.java
 <<<<<<< HEAD
 >>>>>>> f08d936 (Creacion de metodos libros)
+<<<<<<< HEAD
 =======
 >>>>>>> 668d7f2 (Crud completo de libros)
+=======
+<<<<<<< HEAD
+>>>>>>> 9e24dfa (Creacion de metodos libros)
+=======
+=======
+>>>>>>> 668d7f2 (Crud completo de libros)
+>>>>>>> d66b229 (Crud completo de libros)
+>>>>>>> login/prestamo/werner

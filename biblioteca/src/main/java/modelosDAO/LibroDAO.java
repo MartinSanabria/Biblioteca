@@ -68,9 +68,12 @@ public class LibroDAO {
                 categoria.setId_categoria(rs.getInt("id_categoria"));
                 categoria.setNombre(rs.getString("nombre"));
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f08d936 (Creacion de metodos libros)
 =======
 >>>>>>> 668d7f2 (Crud completo de libros)
+=======
+>>>>>>> login/prestamo/werner
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
                 lista.add(categoria);
@@ -110,15 +113,19 @@ public class LibroDAO {
         this.sql = "select * from categoria where id_categoria=?";
         Categoria categoria = new Categoria();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 668d7f2 (Crud completo de libros)
+=======
+>>>>>>> login/prestamo/werner
         try {
             ps = this.CN.getConnection().prepareStatement(this.sql);
             ps.setInt(1, idcategoria);
             rs = ps.executeQuery();
 
             while (rs.next()){
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -177,6 +184,13 @@ public class LibroDAO {
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
 >>>>>>> 668d7f2 (Crud completo de libros)
+=======
+
+            categoria.setId_categoria(rs.getInt("id_categoria"));
+            categoria.setNombre(rs.getString("nombre"));
+            categoria.setEstado(rs.getString("estado"));
+            categoria.setEdicion(rs.getString("edicion"));
+>>>>>>> login/prestamo/werner
             }
 
         } catch (Exception e) {
