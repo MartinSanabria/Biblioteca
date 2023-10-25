@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\ControllerAlumLibro.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Libro.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\DetallePrestamoDAO.java
@@ -53,6 +54,8 @@ C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\ma
 >>>>>>> 85fcaab (Adding create category and deactivate category)
 =======
 =======
+=======
+>>>>>>> d66b229 (Crud completo de libros)
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/LibroDAO.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/DetallePrestamoDAO.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/DetallePrestamo.java
@@ -60,6 +63,7 @@ C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\ma
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/Categoria.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/com/mycompany/biblioteca/resources/JakartaEE8Resource.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/com/mycompany/biblioteca/JakartaRestConfiguration.java
+/Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/controllers/CategoriaController.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/RolesDAO.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/Roles.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/PrestamoDAO.java
@@ -71,5 +75,11 @@ C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\ma
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/Prestamo.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelos/Libro.java
 /Users/martinsanabria/Desktop/Proyecto biblioteca/biblioteca/src/main/java/modelosDAO/DML.java
+<<<<<<< HEAD
 >>>>>>> f08d936 (Creacion de metodos libros)
+<<<<<<< HEAD
 >>>>>>> 9e24dfa (Creacion de metodos libros)
+=======
+=======
+>>>>>>> 668d7f2 (Crud completo de libros)
+>>>>>>> d66b229 (Crud completo de libros)

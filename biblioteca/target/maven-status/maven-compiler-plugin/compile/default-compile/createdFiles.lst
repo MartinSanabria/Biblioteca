@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 controllers\ControllerAlumLibro.class
 controllers\ControllerLogin.class
 controllers\LibroController.class
@@ -36,6 +37,14 @@ modelosDAO\LibroDAO.class
 >>>>>>> 85fcaab (Adding create category and deactivate category)
 =======
 =======
+=======
+>>>>>>> d66b229 (Crud completo de libros)
 controllers/LibroController.class
+<<<<<<< HEAD
 >>>>>>> f08d936 (Creacion de metodos libros)
+<<<<<<< HEAD
 >>>>>>> 9e24dfa (Creacion de metodos libros)
+=======
+=======
+>>>>>>> 668d7f2 (Crud completo de libros)
+>>>>>>> d66b229 (Crud completo de libros)
