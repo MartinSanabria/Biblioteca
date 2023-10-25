@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\ControllerAlumLibro.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Libro.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\DetallePrestamoDAO.java
@@ -28,6 +29,8 @@ C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\m
 >>>>>>> 85fcaab (Adding create category and deactivate category)
 =======
 >>>>>>> 9e24dfa (Creacion de metodos libros)
+=======
+>>>>>>> Categorias/Williamsito
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Encode.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\controllers\CategoriaController.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\CategoriaDAO.java
@@ -47,6 +50,7 @@ C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\ma
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelosDAO\UsuarioDAO.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\com\mycompany\biblioteca\JakartaRestConfiguration.java
 C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\main\java\modelos\Libro.java
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 3a13672 (Pushing my branch)
@@ -88,3 +92,5 @@ C:\Users\PC\Desktop\Proyecto biblioteca quintanilla\Biblioteca\biblioteca\src\ma
 >>>>>>> 668d7f2 (Crud completo de libros)
 >>>>>>> d66b229 (Crud completo de libros)
 >>>>>>> login/prestamo/werner
+=======
+>>>>>>> Categorias/Williamsito

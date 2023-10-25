@@ -66,6 +66,7 @@ public class LibroDAO {
             while(rs.next()){
                 Categoria categoria=new Categoria();
                 categoria.setId_categoria(rs.getInt("id_categoria"));
+<<<<<<< HEAD
                 categoria.setNombre(rs.getString("nombre"));
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -74,6 +75,9 @@ public class LibroDAO {
 >>>>>>> 668d7f2 (Crud completo de libros)
 =======
 >>>>>>> login/prestamo/werner
+=======
+                categoria.setNombre(rs.getString("nombre_categoria"));
+>>>>>>> Categorias/Williamsito
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
                 lista.add(categoria);
@@ -110,6 +114,7 @@ public class LibroDAO {
     
    public Categoria consultarPorCategoria(int idcategoria){
 
+<<<<<<< HEAD
         this.sql = "select * from categoria where id_categoria=?";
         Categoria categoria = new Categoria();
 <<<<<<< HEAD
@@ -119,12 +124,17 @@ public class LibroDAO {
 >>>>>>> 668d7f2 (Crud completo de libros)
 =======
 >>>>>>> login/prestamo/werner
+=======
+       this.sql="select * from categoria where id_categoria=?";
+        Categoria categoria=new Categoria();
+>>>>>>> Categorias/Williamsito
         try {
             ps = this.CN.getConnection().prepareStatement(this.sql);
             ps.setInt(1, idcategoria);
             rs = ps.executeQuery();
 
             while (rs.next()){
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -162,6 +172,8 @@ public class LibroDAO {
                 categoria.setEdicion(rs.getString("edicion"));
 >>>>>>> a24b303 (Conflictos)
 =======
+=======
+>>>>>>> Categorias/Williamsito
                 categoria.setId_categoria(rs.getInt("idcategoria"));
                 categoria.setNombre(rs.getString("nombre_categoria"));
 =======
@@ -170,7 +182,10 @@ public class LibroDAO {
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
 >>>>>>> bb5e55e (merge categorias)
+<<<<<<< HEAD
 >>>>>>> b4d848d (Cambios remotos)
+=======
+>>>>>>> Categorias/Williamsito
             
 =======
                 categoria.setIdCategoria(rs.getInt("id_categoria"));  // Asegúrate de que los nombres coincidan
