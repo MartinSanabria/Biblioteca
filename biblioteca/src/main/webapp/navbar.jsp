@@ -16,15 +16,7 @@
                     <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD
-                    <a class="nav-link" href="">Libros</a>
-=======
-<<<<<<< HEAD
                     <a class="nav-link" href="ControllerAlumLibro">Libros</a>
-=======
-                    <a class="nav-link" href="">Libros</a>
->>>>>>> 9e24dfa (Creacion de metodos libros)
->>>>>>> login/prestamo/werner
                 </li>
             </ul>             
         </div>
