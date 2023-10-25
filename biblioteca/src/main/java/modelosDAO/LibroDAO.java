@@ -66,18 +66,7 @@ public class LibroDAO {
             while(rs.next()){
                 Categoria categoria=new Categoria();
                 categoria.setId_categoria(rs.getInt("id_categoria"));
-<<<<<<< HEAD
                 categoria.setNombre(rs.getString("nombre"));
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> f08d936 (Creacion de metodos libros)
-=======
->>>>>>> 668d7f2 (Crud completo de libros)
-=======
->>>>>>> login/prestamo/werner
-=======
-                categoria.setNombre(rs.getString("nombre_categoria"));
->>>>>>> Categorias/Williamsito
                 categoria.setEstado(rs.getString("estado"));
                 categoria.setEdicion(rs.getString("edicion"));
                 lista.add(categoria);
@@ -114,98 +103,20 @@ public class LibroDAO {
     
    public Categoria consultarPorCategoria(int idcategoria){
 
-<<<<<<< HEAD
-        this.sql = "select * from categoria where id_categoria=?";
-        Categoria categoria = new Categoria();
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 668d7f2 (Crud completo de libros)
-=======
->>>>>>> login/prestamo/werner
-=======
        this.sql="select * from categoria where id_categoria=?";
         Categoria categoria=new Categoria();
->>>>>>> Categorias/Williamsito
+
         try {
             ps = this.CN.getConnection().prepareStatement(this.sql);
             ps.setInt(1, idcategoria);
             rs = ps.executeQuery();
 
             while (rs.next()){
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                categoria.setIdCategoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
-=======
-                categoria.setId_categoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
->>>>>>> 4415093 (Adding create category and deactivate category)
-=======
-=======
->>>>>>> 4a537dd (Correciones)
-                categoria.setId_categoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
-<<<<<<< HEAD
->>>>>>> 2ccd390 (Modificacion vistas libro)
->>>>>>> 733ec75 (Rebase merge)
-=======
-
->>>>>>> 4a537dd (Correciones)
-=======
-                categoria.setId_categoria((rs.getInt("idcategoria")));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
->>>>>>> a24b303 (Conflictos)
-=======
-=======
->>>>>>> Categorias/Williamsito
-                categoria.setId_categoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-=======
-                categoria.setIdCategoria(rs.getInt("idcategoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
->>>>>>> bb5e55e (merge categorias)
-<<<<<<< HEAD
->>>>>>> b4d848d (Cambios remotos)
-=======
->>>>>>> Categorias/Williamsito
-            
-=======
-                categoria.setIdCategoria(rs.getInt("id_categoria"));  // Asegúrate de que los nombres coincidan
-                categoria.setNombre(rs.getString("nombre"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
->>>>>>> f08d936 (Creacion de metodos libros)
-=======
-                categoria.setId_categoria(rs.getInt("id_categoria"));
-                categoria.setNombre(rs.getString("nombre"));
-                categoria.setEstado(rs.getString("estado"));
-                categoria.setEdicion(rs.getString("edicion"));
->>>>>>> 668d7f2 (Crud completo de libros)
-=======
-
             categoria.setId_categoria(rs.getInt("id_categoria"));
             categoria.setNombre(rs.getString("nombre"));
             categoria.setEstado(rs.getString("estado"));
             categoria.setEdicion(rs.getString("edicion"));
->>>>>>> login/prestamo/werner
+
             }
 
         } catch (Exception e) {

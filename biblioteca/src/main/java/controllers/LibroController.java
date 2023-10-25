@@ -181,7 +181,8 @@ public class LibroController extends HttpServlet {
             } else if(request.getParameter("action").equals("delete")) {
                 int idLibro=Integer.parseInt(request.getParameter("id"));
                 LibroDAO libroControl = new LibroDAO();
-                libroControl.eliminar(idLibro);
+                Libro librodecline = libroControl.buscarPorID(idLibro);
+                libroControl.eliminar(librodecline.getIdLibro());
                 
                 String successMessage = "Libro inactivo satisfactoriamente";
                  
@@ -190,7 +191,8 @@ public class LibroController extends HttpServlet {
             } else if(request.getParameter("action").equals("active")) {
                 int idLibro=Integer.parseInt(request.getParameter("id"));
                 LibroDAO libroControl = new LibroDAO();
-                libroControl.Activar(idLibro);
+                Libro libroActive = libroControl.buscarPorID(idLibro);
+                libroControl.Activar(libroActive.getIdLibro());
                 
                 String successMessage = "Libro Activo satisfactoriamente";
                  
