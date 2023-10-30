@@ -93,7 +93,7 @@ public class CategoriaController extends HttpServlet {
                 categoria.eliminar(Integer.parseInt(request.getParameter("id")));
             }else{
                 Categoria  prov=new Categoria(request.getParameter("name"),request.getParameter("estado"),request.getParameter("edicion"));
-            categoria.insert(prov);
+                categoria.insert(prov);
             }
             
 

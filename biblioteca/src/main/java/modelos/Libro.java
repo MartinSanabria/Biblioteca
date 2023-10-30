@@ -42,6 +42,13 @@ public class Libro {
         this.id_categoria = id_categoria;
         this.estado = estado;
     }
+
+    public Libro(int id_libro, String nombre, int cantidad, String foto) {
+        this.id_libro = id_libro;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.foto = foto;
+    }
     
     
 

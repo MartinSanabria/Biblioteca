@@ -20,11 +20,10 @@
                 </li>
             </ul>             
         </div>
-        
         <a class="btn btn-primary position-relative me-5" href="ControllerCarrito">
             <i class="fa-solid fa-book" style="font-size: 20px"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              3<!--Se debe cargar en base a la sesion con -->
+             ${conteoLibros}
               <span class="visually-hidden">unread messages</span>
             </span>
         </a>
