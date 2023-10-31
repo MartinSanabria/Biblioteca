@@ -21,31 +21,38 @@
         </header>
         <div class="container mt-3">
             <h1 class="text-center">Biblioteca virtual</h1>
-            <c:forEach var="libro" items="${libros}">
-                <div class="col">
-                        <div class="card mt-5" style="width: 18rem;">
-                            <img src="${libro.foto}"
-                                 class="card-img-top" alt="Imagen del producto" style="height: 15rem;">
-                            <div class="card-body">
-                                <h5 class="card-title text-center" name="nombreProducto" id="nombreProducto">Titulo: ${libro.nombre}</h5>
-                                <p class="card-text">Autor: ${libro.autor}}</p>
-                                <form method="POST" action="ControllerTienda">
-                                    <input type="hidden" name="id_libro" value="${libro.id_libro}"/>
-                                    <input type="hidden" name="titulo" value="${libro.nombre}"/>
-
+            <div class="row">
+                <c:forEach var="libro" items="${libros}">
+                    <div class="col">
+                            <div class="card mt-5" style="width: 18rem;">
+                                <img src="${libro.foto}"
+                                     class="card-img-top" alt="Imagen del producto" style="height: 15rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center" name="nombreProducto" id="nombreProducto">Titulo: ${libro.nombre}</h5>
+                                    <p class="card-text">Autor: ${libro.autor}</p>
+                                    <p class="card-text">Cantidad en stock: ${libro.cantidad}</p>
                                     
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="cantida" name="cantidad"
-                                            placeholder="Ingrese la cantidad">
-                                        <label for="cantidad">Ingrese la cantidad</label>
-                                    </div>
+                                    <form method="POST" action="ControllerCargarPrestamo">
+                                        <input type="hidden" name="id_libro" value="${libro.id_libro}"/>
+                                        <input type="hidden" name="titulo" value="${libro.nombre}"/>
+                                        <input type="hidden" name="foto" value="${libro.foto}"/> 
 
-                                    <p class="text-center"><button type="submit" class="btn btn-success">Prestar</button></p>
-                                </form>
+
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="cantidad" name="cantidad"
+                                                placeholder="Ingrese la cantidad">
+                                            <label for="cantidad">Ingrese la cantidad a prestar</label>
+                                        </div>
+                                        <p class="text-center"><button type="submit" class="btn btn-success">Prestar</button></p>
+                                    </form>
+                                    <c:if test="${libro.id_libro eq id}">
+                                        <h6>${msj}</h6>
+                                    </c:if>
+                                </div>
                             </div>
-                        </div>
-                </div>
-        </c:forEach>    
+                    </div>
+            </c:forEach> 
+        </div>
               
     </div>
 <c:if test="${not empty errorMessage}">

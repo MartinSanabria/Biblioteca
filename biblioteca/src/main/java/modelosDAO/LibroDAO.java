@@ -31,6 +31,50 @@ public class LibroDAO {
             throw new RuntimeException(e);
         }
     }
+    
+     public ArrayList<Libro> LibrosActivos(){
+        ArrayList<Libro> lista=new ArrayList<>();
+        
+        try{
+            this.sql="SELECT * FROM libros WHERE estado = '1'";
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            rs=ps.executeQuery();
+            while (rs.next()){
+                Libro libro=new Libro();
+   
+                libro.setIdLibro(rs.getInt("id_libro"));
+                libro.setNombre(rs.getString("nombre"));
+                libro.setAutor(rs.getString("autor"));
+                libro.setCantidad(rs.getInt("cantidad"));
+                libro.setFoto(rs.getString("foto"));
+                libro.setEstado(rs.getString("estado"));
+                libro.setIdCategoria(rs.getInt("id_categoria"));
+                lista.add(libro);
+            }
+        }catch (Exception e){
+        }
+       
+        return lista;
+    }
+    
+    public int cantidadLibro(int id_libro){
+        int cantidad = 0;
+        try {
+            this.sql="SELECT cantidad FROM libros where id_libro = ?";
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            ps.setInt(1, id_libro);
+            rs=ps.executeQuery();
+            
+            while (rs.next()){
+                cantidad = rs.getInt("cantidad");
+            }
+            
+        } catch (Exception e) {
+        }
+        return cantidad;
+         
+    } 
+   
     public List<Libro> ConsultaLibros(){
         List<Libro> lista=new ArrayList<>();
         
