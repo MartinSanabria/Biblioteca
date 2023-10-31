@@ -1,6 +1,7 @@
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\ControllerAlumLibro.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Libro.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\DetallePrestamoDAO.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\ControllerPrestamo.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\RolesDAO.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\db\cn.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Roles.java
@@ -10,6 +11,7 @@ C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\c
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Usuario.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\ControllerRegister.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelosDAO\UsuarioDAO.java
+C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\ControllerCargarPrestamo.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\controllers\LibroController.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\DetallePrestamo.java
 C:\Users\ale12\Desktop\4anio\MPWB\periodo3\Biblioteca\biblioteca\src\main\java\modelos\Encode.java

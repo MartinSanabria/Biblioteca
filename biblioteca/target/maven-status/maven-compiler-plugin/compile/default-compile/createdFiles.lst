@@ -2,4 +2,5 @@ controllers\ControllerAlumLibro.class
 controllers\ControllerLogin.class
 controllers\ControllerCargarPrestamo.class
 controllers\LibroController.class
+controllers\ControllerPrestamo.class
 controllers\ControllerRegister.class

@@ -20,7 +20,7 @@
                 </li>
             </ul>             
         </div>
-        <a class="btn btn-primary position-relative me-5" href="ControllerCarrito">
+        <a class="btn btn-primary position-relative me-5" href="ControllerPrestamo">
             <i class="fa-solid fa-book" style="font-size: 20px"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
              ${conteoLibros}
