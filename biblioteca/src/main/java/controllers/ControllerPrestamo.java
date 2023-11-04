@@ -68,7 +68,7 @@ public class ControllerPrestamo extends HttpServlet {
         Libro libro = null;
         LibroDAO libroDAO = new LibroDAO();
         
-        
+        //aqui se carga la tabla si existen datos en la sesion 
         HttpSession session = request.getSession(false);
         if (session.getAttribute("ListaLibros") != null) {
             Llibro = (ArrayList<Libro>) session.getAttribute("ListaLibros");
@@ -137,7 +137,52 @@ public class ControllerPrestamo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       
+        ArrayList<Libro> Llibro = new ArrayList<>();
+        Libro libro = null;
+        LibroDAO libroDAO = new LibroDAO();
+        
+        int id_libro = Integer.parseInt(request.getParameter("id_libro"));
+        int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+        
+        int cantidadStock = libroDAO.cantidadLibro(id_libro);
+        
+        HttpSession session = request.getSession(true);
+        
+        if (cantidad <= cantidadStock) {
+            if(session.getAttribute("ListaLibros")!= null){
+                Llibro = (ArrayList<Libro>) session.getAttribute("ListaLibros");
+                if (Llibro.size() > 0) {
+                    for (int i = 0; i < Llibro.size(); i++) {
+                        if (Llibro.get(i).getIdLibro() == id_libro) {
+                            Llibro.get(i).setCantidad(cantidad);
+                        }
+                    }
+                }
+                request.setAttribute("libros", Llibro);
+                request.setAttribute("conteoLibros", Llibro.size());
+                
+                RequestDispatcher dispatcher=request.getRequestDispatcher("prestamo.jsp");
+                dispatcher.forward(request,response);
+            }
+        }else{
+            if(session.getAttribute("ListaLibros")!= null){
+                Llibro = (ArrayList<Libro>) session.getAttribute("ListaLibros");
+                for (int i = 0; i < Llibro.size(); i++) {
+                    if (Llibro.get(i).getIdLibro() == id_libro) {
+                        libro = new Libro(Llibro.get(i).getIdLibro(), Llibro.get(i).getNombre(), Llibro.get(i).getCantidad(), Llibro.get(i).getFoto());
+                    }
+                }
+                request.setAttribute("libro", libro);
+                request.setAttribute("conteoLibros", Llibro.size());
+                request.setAttribute("msj", "No hay suficiente stock");
+
+                RequestDispatcher dispatcher=request.getRequestDispatcher("editPrestamo.jsp");
+                dispatcher.forward(request,response); 
+            }
+        }
+        
+         
     }
 
     /**

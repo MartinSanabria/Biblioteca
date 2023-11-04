@@ -25,6 +25,7 @@
                 </div>
                 <div class="col-6">
                     <form method="POST" action="ControllerPrestamo">
+                        <input type="hidden" name="id_libro" value="${libro.id_libro}"/>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="${libro.nombre}"
                                 readonly>
@@ -38,6 +39,7 @@
                     </form>
                 </div>
             </div>
+            <h6 class="text-center">${msj}</h6>
         </div>
                            
         <script src="https://kit.fontawesome.com/201886318c.js" crossorigin="anonymous"></script>

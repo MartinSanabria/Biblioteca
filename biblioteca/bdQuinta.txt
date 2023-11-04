@@ -22,7 +22,6 @@ CREATE TABLE usuario (
 CREATE TABLE prestamo (
     id_prestamo INT AUTO_INCREMENT PRIMARY KEY,
     fecha_sistema TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    descripcion VARCHAR(255) NOT NULL,
     estado CHAR,
     id_usuario INT,
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)

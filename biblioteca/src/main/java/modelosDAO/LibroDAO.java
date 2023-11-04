@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import modelos.Categoria;
 import modelos.Libro;
+import modelos.Prestamo;
 /**
  *
  * @author Alejandro
@@ -221,5 +222,26 @@ public class LibroDAO {
         }
         return false;
     }
+ 
+     
+     //actuallizar el stock
+      public String actualizarStock(Libro libro){
+        this.sql="update libros set cantidad = ? where id_libro=?";
+        try {
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            ps.setInt(1,libro.getCantidad());
+            ps.setInt(2,libro.getId_libro());
+            int filasAfectadas=ps.executeUpdate();
+            
+            if(filasAfectadas>0){
+                return "Actualizado";
+            }
+        }catch (Exception e){
+            return e.toString();
+        }
+        return "Error";
+    }
+      
+      
     
 }

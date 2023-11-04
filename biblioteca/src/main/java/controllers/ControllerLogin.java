@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelos.Encode;
+import modelos.Libro;
 import modelos.Usuario;
 import modelosDAO.UsuarioDAO;
 
@@ -64,18 +65,28 @@ public class ControllerLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        ArrayList<Libro> Llibro = new ArrayList();
+        HttpSession sessionbook = request.getSession(false);
+        
         if (request.getParameter("action") != null) {
             if (request.getParameter("action").equals("close")) {
                 HttpSession session = request.getSession();
                 if (session.getAttribute("usuario") != null) {
-                    session.invalidate();
+                    if (sessionbook.getAttribute("ListaLibros") != null) {
+                        Llibro = (ArrayList<Libro>) sessionbook.getAttribute("ListaLibros");
+                        request.setAttribute("conteoLibros", Llibro.size());
+                    }
+                    session.setAttribute("usuario", null);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
                     dispatcher.forward(request, response);
                 }
             }
         }
         
-        
+        if (sessionbook.getAttribute("ListaLibros") != null) {
+            Llibro = (ArrayList<Libro>) sessionbook.getAttribute("ListaLibros");
+            request.setAttribute("conteoLibros", Llibro.size());
+        }
         
         RequestDispatcher dispatcher=request.getRequestDispatcher("login/login.jsp");
         dispatcher.forward(request,response);
@@ -99,33 +110,49 @@ public class ControllerLogin extends HttpServlet {
         Encode encrip = new Encode();
         
         ArrayList<Usuario> lusuario = new ArrayList();
+        ArrayList<Libro> Llibro = new ArrayList();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         
         lusuario = usuarioDAO.listadoUsuario();
+        HttpSession session = request.getSession(true);
         
         for(Usuario user: lusuario){
             if (user.getUsername().equals(userName) && user.getPasswordUser().equals(pass) && user.getRol() == 1) {
-                HttpSession session = request.getSession(true);
-                if(session.getAttribute("usuario") != null){
+                
+                if(session.getAttribute("usuario") != null){  
+                   session.setAttribute("usuario", userName);
+                   session.setAttribute("id", user.getIdUsuario());
                    RequestDispatcher dispatcher=request.getRequestDispatcher("/admin/index.jsp");
                    dispatcher.forward(request,response); 
                    break;
                 }
                 else{
                     session.setAttribute("usuario", userName);
+                    session.setAttribute("id", user.getIdUsuario());
                     RequestDispatcher dispatcher=request.getRequestDispatcher("/admin/index.jsp");
                     dispatcher.forward(request,response); 
                     break;
                 } 
             }
             else if(user.getUsername().equals(userName) && user.getPasswordUser().equals(pass) && user.getRol() == 2){
-                HttpSession session = request.getSession(true);
+               
                 if(session.getAttribute("usuario") != null){
+                    if (session.getAttribute("ListaLibros") != null) {
+                        Llibro = (ArrayList<Libro>) session.getAttribute("ListaLibros");
+                        request.setAttribute("conteoLibros", Llibro.size());
+                    }
+                   session.setAttribute("usuario", userName);
+                   session.setAttribute("id", user.getIdUsuario());
                    RequestDispatcher dispatcher=request.getRequestDispatcher("libros.jsp");
                    dispatcher.forward(request,response); 
                    break;
                 }
                 else{
+                    if (session.getAttribute("ListaLibros") != null) {
+                        Llibro = (ArrayList<Libro>) session.getAttribute("ListaLibros");
+                        request.setAttribute("conteoLibros", Llibro.size());
+                    }
+                    session.setAttribute("id", user.getIdUsuario());
                     session.setAttribute("usuario", userName);
                     RequestDispatcher dispatcher=request.getRequestDispatcher("libros.jsp");
                     dispatcher.forward(request,response); 
@@ -133,7 +160,10 @@ public class ControllerLogin extends HttpServlet {
                 } 
             }
         }
-        
+        if (session.getAttribute("ListaLibros") != null) {
+            Llibro = (ArrayList<Libro>) session.getAttribute("ListaLibros");
+            request.setAttribute("conteoLibros", Llibro.size());
+        }
         request.setAttribute("msj", "No se encontro el usuario");
         RequestDispatcher dispatcher=request.getRequestDispatcher("login/login.jsp");
         dispatcher.forward(request,response);    

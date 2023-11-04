@@ -43,7 +43,8 @@
             </table>
             <c:choose>
                 <c:when test="${not empty conteoLibros or conteoLibros > 0}">
-                    <p class="text-center"><a class="btn btn-success" href="url">Prestar</a></p>
+                    <p class="text-center"><a class="btn btn-success" href="ControllerSavePrestamo?action=prestar">Prestar</a></p>
+                    <p class="text-center"><a class="btn btn-danger" href="ControllerSavePrestamo?action=cancel">Cancelar prestamo</a></p>
                 </c:when>
             </c:choose>
             <h6 class="text-center">${msj}</h6>

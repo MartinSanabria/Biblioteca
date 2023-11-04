@@ -18,6 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="ControllerAlumLibro">Libros</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ControllerReportPrestamo">Prestamos</a>
+                </li>
             </ul>             
         </div>
         <a class="btn btn-primary position-relative me-5" href="ControllerPrestamo">

@@ -49,6 +49,12 @@ public class Libro {
         this.cantidad = cantidad;
         this.foto = foto;
     }
+
+    public Libro(int id_libro, int cantidad) {
+        this.id_libro = id_libro;
+        this.cantidad = cantidad;
+    }
+    
     
     
     
