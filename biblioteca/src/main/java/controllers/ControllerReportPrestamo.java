@@ -14,8 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelos.DetallePrestamo;
 import modelos.Libro;
 import modelos.Prestamo;
+import modelosDAO.DetallePrestamoDAO;
+import modelosDAO.LibroDAO;
 import modelosDAO.PrestamoDAO;
 
 /**
@@ -69,16 +72,23 @@ public class ControllerReportPrestamo extends HttpServlet {
         ArrayList<Libro> Llibro = new ArrayList();
         
         Prestamo prestamo = new Prestamo();
+        
+        DetallePrestamo detallePrestamo = new DetallePrestamo();
+        
+        LibroDAO libroDAO = new LibroDAO();
+        DetallePrestamoDAO detallePrestamoDAO = new DetallePrestamoDAO();
         PrestamoDAO prestamoDAO = new PrestamoDAO();
+        
+        
         ArrayList<Prestamo> Lprestamos=new ArrayList<>();
+        //lista para actuaizar el stock
+        ArrayList<DetallePrestamo> lDetPrestamo = new ArrayList<>();
         
         if (session.getAttribute("usuario") == null) {
-            Lprestamos = prestamoDAO.prestamosActivos((int) session.getAttribute("id"));
-            request.setAttribute("prestamos", Lprestamos);
-            
             RequestDispatcher dispatcher=request.getRequestDispatcher("login/login.jsp");
             dispatcher.forward(request,response);
         }
+        
         if (session.getAttribute("ListaLibros") != null) {
             Llibro = (ArrayList<Libro>) session.getAttribute("ListaLibros");
             if (Llibro.size() > 0) {
@@ -90,7 +100,54 @@ public class ControllerReportPrestamo extends HttpServlet {
             }
         }
         
-
+        if (request.getParameter("action") != null) {
+            int  id = Integer.parseInt(request.getParameter("id"));
+            prestamo = new Prestamo( id);
+            detallePrestamo = new DetallePrestamo( id);
+            
+            if (request.getParameter("action").equals("backOne")) {
+                int total = 0;
+                
+                //obtener el id del libro
+                int idLibro =  Integer.parseInt(request.getParameter("idLibro"));
+                //obtener el stock y lo que se ha prestado para sumarlo
+                int stock = libroDAO.cantidadLibro(idLibro);
+                int CantPrestada = detallePrestamoDAO.LibrosPrestados(id);
+                
+                
+                total= stock + CantPrestada;
+                Libro libro = new Libro(idLibro, total);
+                
+                //se actualiza el stock y el estado
+                libroDAO.actualizarStock(libro);
+                detallePrestamoDAO.updateOne(detallePrestamo);
+               
+                //se evalua si tiene libros aun sino se actualiza
+                int idPrestamo = detallePrestamoDAO.idPrestamo(id);
+                int CantidadLibros = detallePrestamoDAO.informeDetalle(idPrestamo);
+                if (CantidadLibros == 0) {
+                    prestamo = new Prestamo(idPrestamo);
+                    prestamoDAO.update( prestamo);
+                }
+               
+                
+            }
+            else if(request.getParameter("action").equals("backAll")){
+                lDetPrestamo = detallePrestamoDAO.PrestamosActivos(id);
+                for (DetallePrestamo item : lDetPrestamo) {
+                    int stock = libroDAO.cantidadLibro(item.getIdLibro());
+                    int CantPrestada = detallePrestamoDAO.LibrosPrestados(item.getIdDetPrestamo());
+                    int total = stock + CantPrestada;
+                    Libro libro = new Libro(item.getIdLibro(), total);
+                    libroDAO.actualizarStock(libro);
+                }
+                prestamoDAO.update(prestamo);
+                detallePrestamoDAO.update(detallePrestamo);
+            }
+        }
+        
+        Lprestamos = prestamoDAO.prestamosActivos((int) session.getAttribute("id"));
+        request.setAttribute("prestamos", Lprestamos);
         
         RequestDispatcher dispatcher=request.getRequestDispatcher("prestamos.jsp");
         dispatcher.forward(request,response); 
@@ -107,7 +164,32 @@ public class ControllerReportPrestamo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        HttpSession session = request.getSession(false);
+         
+        int idPrestamo = Integer.parseInt(request.getParameter("idPrestamo"));
+        DetallePrestamoDAO detPrestamoDAO = new DetallePrestamoDAO();
+        PrestamoDAO prestamoDAO = new PrestamoDAO();
+        
+        //lista de libros prestados
+        ArrayList<DetallePrestamo> lDetPrestamo = new ArrayList<>();
+        //listado de fechas
+        ArrayList<Prestamo> Lprestamos=new ArrayList<>();
+        
+        
+        if (idPrestamo > 0) {
+            //se obtienen los libros prestados
+            lDetPrestamo = detPrestamoDAO.PrestamosActivos(idPrestamo);
+            request.setAttribute("LdetPrestamo", lDetPrestamo);
+            request.setAttribute("id", idPrestamo);
+        }
+        
+        Lprestamos = prestamoDAO.prestamosActivos((int) session.getAttribute("id"));
+        request.setAttribute("prestamos", Lprestamos);
+        
+        
+        RequestDispatcher dispatcher=request.getRequestDispatcher("prestamos.jsp");
+        dispatcher.forward(request,response);
     }
 
     /**

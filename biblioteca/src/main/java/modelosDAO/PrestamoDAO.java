@@ -50,7 +50,7 @@ public class PrestamoDAO implements DML<Prestamo>{
         ArrayList<Prestamo> lista=new ArrayList<>();
         
         try{
-            this.sql="SELECT id_prestamo, fecha_sistema FROM `prestamo` WHERE id_usuario = ? and estado = '1' ORDER BY id_prestamo;";
+            this.sql="SELECT id_prestamo, fecha_sistema FROM prestamo WHERE id_usuario = ? and estado = '1' ORDER BY id_prestamo;";
             ps=this.CN.getConnection().prepareStatement(this.sql);
             ps.setInt(1, idUsuario);
             rs=ps.executeQuery();
@@ -95,7 +95,22 @@ public class PrestamoDAO implements DML<Prestamo>{
 
     @Override
     public String update(Prestamo objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String msj = "";
+        this.sql="UPDATE prestamo SET estado = '0' WHERE id_prestamo = ?";
+        
+        try {
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            ps.setInt(1,objeto.getIdPrestamo());
+            int filasAfectadas=ps.executeUpdate();
+            
+            if(filasAfectadas>0){
+                msj = "Actualizado exitosamente";
+            }
+        }catch (Exception e){
+
+        }
+        return msj;
+    
     }
     
 }
