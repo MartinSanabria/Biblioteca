@@ -57,6 +57,31 @@ public class UsuarioDAO implements DML<Usuario>{
         return lUsuario;
     }
     
+    public ArrayList<Usuario> listadoUsuarioEncrip(){
+        Encode encrip = new Encode();
+        ArrayList<Usuario> lUsuario = new ArrayList<>();
+        try{
+            this.sql="SELECT * from usuario us JOIN roles r on us.id_rol = r.id_rol";
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            rs=ps.executeQuery();
+            while (rs.next()){
+                Usuario usuario = new Usuario();
+                usuario.setIdUsuario(rs.getInt(1));
+                usuario.setNombres(rs.getString(2));
+                usuario.setApellidos(rs.getString(3));
+                usuario.setUsername(rs.getString(4));
+                usuario.setEstado(rs.getString(5));
+                usuario.setPasswordUser(rs.getString(6));
+                usuario.setRol(rs.getInt(7));
+                usuario.setRolName(rs.getString(9));             
+                lUsuario.add(usuario);
+            }
+        }catch (Exception e){
+        }
+        
+        return lUsuario;
+    }
+    
 
     @Override
     public String insert(Usuario objeto) {
@@ -85,14 +110,68 @@ public class UsuarioDAO implements DML<Usuario>{
         return msj;
     }
 
+   
     @Override
     public String delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String msj = "";
+        String sql = "UPDATE usuario SET estado = 'd' WHERE id_usuario = ?";
+        try {
+            con=CN.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.setInt(1 , id);
+            
+            int filasAfectadas=ps.executeUpdate();
+            
+            if(filasAfectadas>0){
+                msj = "Se desactivo exitosamente";
+            }
+        }catch (Exception e){
+            msj = "Error al desactivar";
+        }
+        return msj;
     }
 
     @Override
     public String update(Usuario objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String msj = "";
+        String sql="UPDATE usuario SET nombres=?, apellidos=?, username=?, password_user=?, id_rol=? WHERE id_usuario = ?";
+        try {
+            con=CN.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.setString(1,objeto.getNombres());
+            ps.setString(2, objeto.getApellidos());
+            ps.setString(3, objeto.getUsername());
+            ps.setString(4, objeto.getPasswordUser());
+            ps.setInt(5, objeto.getRol());
+            ps.setInt(6, objeto.getIdUsuario());
+            
+            int filasAfectadas=ps.executeUpdate();
+            
+            if (filasAfectadas > 0) {
+                msj = "Actualizado";
+            }
+        }catch (Exception e){
+            msj = "Error"+e.toString();
+        }
+        return msj;
     }
     
+    public String activar(int id) {
+        String msj = "";
+        String sql = "UPDATE usuario SET estado = 'a' WHERE id_usuario = ?";
+        try {
+            con=CN.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.setInt(1 , id);
+            
+            int filasAfectadas=ps.executeUpdate();
+            
+            if(filasAfectadas>0){
+                msj = "Se activo exitosamente";
+            }
+        }catch (Exception e){
+            msj = "Error al activar";
+        }
+        return msj;
+    }
 }
