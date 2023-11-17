@@ -113,13 +113,13 @@
     function confirmDelete(button) {
         var idLibro = button.getAttribute('data-id');
         Swal.fire({
-            title: '¿Estás seguro?',
-            text: "¡No podrás revertir esto!",
+            title: '?Est?s seguro?',
+            text: "?No podr?s revertir esto!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, Desactivar'
+            confirmButtonText: 'S?, Desactivar'
         }).then((result) => {
             if (result.isConfirmed) {
                 // Update the form action with the idCategoria value
@@ -136,13 +136,13 @@
     function confirmActive(button) {
         var idLibro = button.getAttribute('data-id');
         Swal.fire({
-            title: '¿Estás seguro?',
-            text: "¡No podrás revertir esto!",
+            title: '?Est?s seguro?',
+            text: "?No podr?s revertir esto!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, Activar'
+            confirmButtonText: 'S?, Activar'
         }).then((result) => {
             if (result.isConfirmed) {
                 // Update the form action with the idCategoria value

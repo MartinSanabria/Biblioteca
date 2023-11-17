@@ -27,7 +27,6 @@ import modelosDAO.LibroDAO;
 @WebServlet(name = "CategoriaController", urlPatterns = {"/CategoriaController"})
 public class CategoriaController extends HttpServlet {
 
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,7 +44,7 @@ public class CategoriaController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CategoriaController</title>");            
+            out.println("<title>Servlet CategoriaController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CategoriaController at " + request.getContextPath() + "</h1>");
@@ -66,13 +65,32 @@ public class CategoriaController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        try {
+            if (request.getParameter("action") != null) {
+                if (request.getParameter("action").equals("edit")) {
+                    int idCategoria = Integer.parseInt(request.getParameter("id"));
+                    CategoriaDAO categorias = new CategoriaDAO();
+                    Categoria catfound = categorias.buscarPorId(idCategoria);
+                    request.setAttribute("catEdit", catfound);
+
+                    RequestDispatcher dispatcher2 = request.getRequestDispatcher("/admin/editCategorias.jsp");
+                    dispatcher2.forward(request, response);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); //
+        }
+
         CategoriaDAO categoria = new CategoriaDAO();
-            
-            List<Categoria> categoriaList = categoria.ObtenerCategorias();  
-            request.setAttribute("categorias", categoriaList);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/verCategorias.jsp");
-             // Envía la solicitud al dispatcher.
-            dispatcher.forward(request, response);
+
+        List<Categoria> categoriaList = categoria.ObtenerCategorias();
+        
+        request.setAttribute("categorias", categoriaList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/verCategorias.jsp");
+        dispatcher.forward(request, response);
+        // Envía la solicitud al dispatcher.
+
     }
 
     /**
@@ -86,18 +104,30 @@ public class CategoriaController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           
         
-            CategoriaDAO categoria=new CategoriaDAO(); 
-            if(request.getParameter("action").equals("deactivate")){
-                categoria.eliminar(Integer.parseInt(request.getParameter("id")));
-            }else{
-                Categoria  prov=new Categoria(request.getParameter("name"),request.getParameter("estado"),request.getParameter("edicion"));
-                categoria.insert(prov);
-            }
+        CategoriaDAO categoria=new CategoriaDAO(); 
             
+        try{
+        if (request.getParameter("action").equals("deactivate")) {
+            categoria.eliminar(Integer.parseInt(request.getParameter("id")));
+        } else if (request.getParameter("action").equals("activate")) {
+            categoria.activar(Integer.parseInt(request.getParameter("id")));
+        } else if (request.getParameter("action").equals("update")) {     
+            categoria.actualizar(request.getParameter("name"), request.getParameter("edicion"), Integer.parseInt(request.getParameter("inputId")));
+            String successMessage = "Categoria actualizado satisfactoriamente";
+            request.setAttribute("successMessage", successMessage);
+        } else if (request.getParameter("action").equals("create")) {
+            Categoria prov = new Categoria(request.getParameter("name"), request.getParameter("estado"), request.getParameter("edicion"));
+            categoria.insert(prov);
+            String successMessage = "Categoria agregada satisfactoriamente";
+            request.setAttribute("successMessage", successMessage);
+        }
+        } catch(Exception e){
+            String errorMessage = "Error";
+            request.setAttribute("errorMessage", errorMessage);
+        }
 
-            doGet(request,response);
+        doGet(request, response);
     }
 
     /**

@@ -31,7 +31,7 @@
             <!-- Start Card Body -->
             <div class="card-body">
                 <!-- Start Form -->
-                <form action="/biblioteca/CategoriaController"  method="post" >
+                <form action="/biblioteca/CategoriaController?action=create"  method="post" >
                     <!-- Start Input Name -->
                     <div class="form-group">
                         <label for="inputName">Nombre categoria</label>
@@ -42,7 +42,7 @@
 
                     <!-- Start Input Estado -->
                     <div class="form-group">
-                        <label for="inputEmail">Email</label>
+                        <label for="inputEstado">Estado</label>
                         <select type="text" class="form-control" id="selectEstado" name="estado" placeholder="Seleccione el estado"  required>
                             <option value="1">Activo</option>
                         </select>
@@ -52,7 +52,7 @@
 
                     <!-- Start Input Edicion -->
                     <div class="form-group">
-                        <label for="inputEdicion">Edicion</label>
+                        <label for="inputEdicion">Nombre de la edicion</label>
                         <input type="text" class="form-control" id="inputEdicion" name="edicion" placeholder="Edicion" required />
 
                     </div>

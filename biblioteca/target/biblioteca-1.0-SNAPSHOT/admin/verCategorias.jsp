@@ -57,18 +57,37 @@
                                 <td>${categorias.getEdicion()}</td>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="LibroController?action=edit&id=${libro.id_libro}" class="btn btn-dark me-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                            </svg>
-                                        </a>
-                                        <form id="deleteForm" action="CategoriaController?action=deactivate&id=${categorias.getId_categoria()}" method="post">
-                                            <button type="button" class="btn btn-danger" onclick="confirmDelete(this);" data-id="${categorias.getId_categoria()}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                                </svg>
-                                            </button>
-                                        </form>
+
+                                        <c:choose>
+                                            <c:when test="${categorias.estado eq 1}">
+                                                <a href="/biblioteca/CategoriaController?action=edit&id=${categorias.getId_categoria()}" class="btn me-1">
+
+                                                    <img src="/biblioteca/Assets/boligrafo.png" alt="editar-logo" width="30" height="30" />
+                                                </a>
+                                            </c:when>
+                                            <c:otherwise>
+
+                                            </c:otherwise>
+                                        </c:choose>
+
+                                        <c:choose>
+                                            <c:when test="${categorias.estado eq 1}">
+                                                <form id="deleteForm" action="CategoriaController?action=deactivate&id=${categorias.getId_categoria()}" method="post">
+                                                    <button type="button" class="btn" onclick="confirmDelete(this);" data-id="${categorias.getId_categoria()}">
+                                                        <img src="/biblioteca/Assets/encender.png" alt="encender-logo" width="30" height="30" />
+
+                                                    </button>
+                                                </form>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <form id="activateForm" action="CategoriaController?action=activate&id=${categorias.getId_categoria()}" method="post">
+                                                    <button type="button" class="btn" onclick="confirmActivate(this);" data-id="${categorias.getId_categoria()}">
+                                                        <img src="/biblioteca/Assets/apagar.png" alt="apagar-logo" width="30" height="30" />  
+                                                    </button>
+                                                </form>
+                                            </c:otherwise>
+
+                                        </c:choose>
                                     </div> 
                                 </td>
                             </tr>  
@@ -84,28 +103,75 @@
         <script src="https://kit.fontawesome.com/201886318c.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-                                           function confirmDelete(button) {
-                                               var idCategoria = button.getAttribute('data-id');
-                                               Swal.fire({
-                                                   title: '¿Estás seguro?',
-                                                   text: "¡No podrás revertir esto!",
-                                                   icon: 'warning',
-                                                   showCancelButton: true,
-                                                   confirmButtonColor: '#3085d6',
-                                                   cancelButtonColor: '#d33',
-                                                   confirmButtonText: 'Sí, eliminarlo'
-                                               }).then((result) => {
-                                                   if (result.isConfirmed) {
-                                                       // Update the form action with the idCategoria value
-                                                       var form = document.getElementById("deleteForm");
-                                                       form.action = 'CategoriaController?action=deactivate&id=' + idCategoria;
-                                                       // Submit the form
-                                                       form.submit();
-                                                   }
-                                               });
-                                           }
+                                                    function confirmDelete(button) {
+                                                        var idCategoria = button.getAttribute('data-id');
+                                                        Swal.fire({
+                                                            title: '¿Estás seguro de desactivarlo?',
+                                                            text: "",
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#3085d6',
+                                                            cancelButtonColor: '#d33',
+                                                            confirmButtonText: 'Sí, desactivarlo'
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                // Update the form action with the idCategoria value
+                                                                var form = document.getElementById("deleteForm");
+                                                                form.action = 'CategoriaController?action=deactivate&id=' + idCategoria;
+                                                                // Submit the form
+                                                                form.submit();
+                                                            }
+                                                        });
+                                                    }
+
+
+
+                                                    function confirmActivate(button) {
+                                                        var idCategoria = button.getAttribute('data-id');
+                                                        Swal.fire({
+                                                            title: '¿Estás seguro de activarlo?',
+                                                            text: "",
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#3085d6',
+                                                            cancelButtonColor: '#d33',
+                                                            confirmButtonText: 'Sí, activarlo'
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                // Update the form action with the idCategoria value
+                                                                var form = document.getElementById("activateForm");
+                                                                form.action = 'CategoriaController?action=activate&id=' + idCategoria;
+                                                                // Submit the form
+                                                                form.submit();
+                                                            }
+                                                        });
+                                                    }
 
         </script>
+        
+<c:if test="${not empty successMessage}">
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '${successMessage}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+</c:if>
+    
+    <c:if test="${not empty errorMessage}">
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: '${errorMessage}',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    </script>
+</c:if>
     </body>
 </html>
 
