@@ -9,13 +9,14 @@ package modelos;
  * @author Alejandro
  */
 public class Usuario {
-     private int id_usuario;
+    private int id_usuario;
     private String nombres;
     private String apellidos;
     private String username;
     private String password_user;
     private String estado;
     private int rol;
+    private String rolName;
 
     public Usuario() {
     }
@@ -122,5 +123,12 @@ public class Usuario {
     public void setRol(int rol) {
         this.rol = rol;
     }
-    
+
+    public String getRolName() {
+        return rolName;
+    }
+
+    public void setRolName(String rolName) {
+        this.rolName = rolName;
+    }
 }
