@@ -4,6 +4,8 @@
  */
 package modelos;
 
+import java.util.Date;
+
 /**
  *
  * @author Alejandro
@@ -14,7 +16,11 @@ public class DetallePrestamo {
     private int id_libro;
     private int id_prestamo;
     private String estado;
-
+    
+    private Date fecha_sistema;
+    private String foto;
+    private String nombreLibro;
+    
     // Constructor para update
     public DetallePrestamo(int id_det_prestamo, int cantidad, int id_libro, int id_prestamo, String estado) {
         this.id_det_prestamo = id_det_prestamo;
@@ -35,6 +41,45 @@ public class DetallePrestamo {
     public DetallePrestamo(int id_det_prestamo) {
         this.id_det_prestamo = id_det_prestamo;
     }
+
+    //consulta de los libros que se han prestado
+    public DetallePrestamo(int cantidad, int id_libro, String estado, Date fecha_sistema, String foto, String nombreLibro) {
+        this.cantidad = cantidad;
+        this.id_libro = id_libro;
+        this.estado = estado;
+        this.fecha_sistema = fecha_sistema;
+        this.foto = foto;
+        this.nombreLibro = nombreLibro;
+    }
+
+    public DetallePrestamo() {
+    }
+
+    public Date getFecha_sistema() {
+        return fecha_sistema;
+    }
+
+    public void setFecha_sistema(Date fecha_sistema) {
+        this.fecha_sistema = fecha_sistema;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getNombreLibro() {
+        return nombreLibro;
+    }
+
+    public void setNombreLibro(String nombreLibro) {
+        this.nombreLibro = nombreLibro;
+    }
+    
+    
    
     // Getters and Setters
     public int getIdDetPrestamo() {

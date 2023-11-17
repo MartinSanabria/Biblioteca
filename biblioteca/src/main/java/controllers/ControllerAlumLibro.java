@@ -60,8 +60,7 @@ public class ControllerAlumLibro extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       
+            throws ServletException, IOException {        
         
         ArrayList<Libro> Llibro = new ArrayList<>();
         
