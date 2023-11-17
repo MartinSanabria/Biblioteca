@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import modelos.Categoria;
 import modelos.Libro;
+import modelos.Prestamo;
 /**
  *
  * @author Alejandro
@@ -31,31 +32,8 @@ public class LibroDAO {
             throw new RuntimeException(e);
         }
     }
-    public List<Libro> ConsultaLibros(){
-        List<Libro> lista=new ArrayList<>();
-        
-        try{
-            this.sql="SELECT * FROM libros";
-            ps=this.CN.getConnection().prepareStatement(this.sql);
-            rs=ps.executeQuery();
-            while (rs.next()){
-                Libro libro=new Libro();
-   
-                libro.setIdLibro(rs.getInt("id_libro"));
-                libro.setNombre(rs.getString("nombre"));
-                libro.setAutor(rs.getString("autor"));
-                libro.setCantidad(rs.getInt("cantidad"));
-                libro.setFoto(rs.getString("foto"));
-                libro.setEstado(rs.getString("estado"));
-                libro.setIdCategoria(rs.getInt("id_categoria"));
-                lista.add(libro);
-            }
-        }catch (Exception e){
-        }
-       
-        return lista;
-    }
-    public ArrayList<Libro> LibrosActivos(){
+    
+     public ArrayList<Libro> LibrosActivos(){
         ArrayList<Libro> lista=new ArrayList<>();
         
         try{
@@ -97,7 +75,32 @@ public class LibroDAO {
         return cantidad;
          
     } 
-    
+   
+    public List<Libro> ConsultaLibros(){
+        List<Libro> lista=new ArrayList<>();
+        
+        try{
+            this.sql="SELECT * FROM libros";
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            rs=ps.executeQuery();
+            while (rs.next()){
+                Libro libro=new Libro();
+   
+                libro.setIdLibro(rs.getInt("id_libro"));
+                libro.setNombre(rs.getString("nombre"));
+                libro.setAutor(rs.getString("autor"));
+                libro.setCantidad(rs.getInt("cantidad"));
+                libro.setFoto(rs.getString("foto"));
+                libro.setEstado(rs.getString("estado"));
+                libro.setIdCategoria(rs.getInt("id_categoria"));
+                lista.add(libro);
+            }
+        }catch (Exception e){
+        }
+       
+        return lista;
+    }
+       
      public List ConsultaCategoria(){
 
         ArrayList<Categoria> lista=new ArrayList<>();
@@ -242,5 +245,26 @@ public class LibroDAO {
         }
         return false;
     }
-    
+ 
+     
+     //actuallizar el stock
+      public String actualizarStock(Libro libro){
+        this.sql="update libros set cantidad = ? where id_libro=?";
+        try {
+            ps=this.CN.getConnection().prepareStatement(this.sql);
+            ps.setInt(1,libro.getCantidad());
+            ps.setInt(2,libro.getId_libro());
+            int filasAfectadas=ps.executeUpdate();
+            
+            if(filasAfectadas>0){
+                return "Actualizado";
+            }
+        }catch (Exception e){
+            return e.toString();
+        }
+        return "Error";
+    }
+      
+      
+      
 }

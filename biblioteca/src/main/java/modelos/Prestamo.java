@@ -25,8 +25,7 @@ public class Prestamo {
     }
 
     // Constructor para insert
-    public Prestamo(String descripcion, int id_usuario, String estado) {
-        this.descripcion = descripcion;
+    public Prestamo(int id_usuario, String estado) {
         this.id_usuario = id_usuario;
         this.estado = estado;
     }
@@ -35,6 +34,10 @@ public class Prestamo {
     public Prestamo(int id_prestamo) {
         this.id_prestamo = id_prestamo;
     }
+
+    public Prestamo() {
+    }
+    
     
 
     // Getters and Setters

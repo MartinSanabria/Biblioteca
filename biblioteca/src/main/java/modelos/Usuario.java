@@ -16,6 +16,7 @@ public class Usuario {
     private String password_user;
     private String estado;
     private int rol;
+    private String rolName;
 
     public Usuario() {
     }
@@ -121,6 +122,14 @@ public class Usuario {
 
     public void setRol(int rol) {
         this.rol = rol;
+    }
+
+    public String getRolName() {
+        return rolName;
+    }
+
+    public void setRolName(String rolName) {
+        this.rolName = rolName;
     }
     
 }

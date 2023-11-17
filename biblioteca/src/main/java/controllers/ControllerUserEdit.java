@@ -13,15 +13,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.Libro;
-import modelosDAO.LibroDAO;
+import modelos.Encode;
+import modelos.Usuario;
+import modelosDAO.UsuarioDAO;
 
 /**
  *
  * @author Alejandro
  */
-@WebServlet(name = "ControllerAlumLibro", urlPatterns = {"/ControllerAlumLibro"})
-public class ControllerAlumLibro extends HttpServlet {
+@WebServlet(name = "ControllerUserEdit", urlPatterns = {"/ControllerUserEdit"})
+public class ControllerUserEdit extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +41,10 @@ public class ControllerAlumLibro extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControllerAlumLibro</title>");            
+            out.println("<title>Servlet ControllerUserEdit</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControllerAlumLibro at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControllerUserEdit at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,18 +61,8 @@ public class ControllerAlumLibro extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
-        
-        ArrayList<Libro> Llibro = new ArrayList<>();
-        
-        Libro libro = new Libro();
-        LibroDAO libroDAO = new LibroDAO();
-        
-        Llibro = libroDAO.LibrosActivos();
-        
-        request.setAttribute("libros", Llibro);
-        RequestDispatcher dispatcher=request.getRequestDispatcher("libros.jsp");
-        dispatcher.forward(request,response); 
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**
@@ -85,7 +76,40 @@ public class ControllerAlumLibro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        //clase de encriptar
+        Encode encrip = new Encode();
+        String claveEncriptada = "";
+                
+        //obtencion de datos
+        int id = Integer.parseInt(request.getParameter("id"));
+        String nombres = request.getParameter("nombre");
+        String apellidos = request.getParameter("apellido");
+        String username = request.getParameter("username");
+        int rol = Integer.parseInt(request.getParameter("rol"));
+        String pass = request.getParameter("pass");
+        
+        try {
+            claveEncriptada = encrip.encriptar(pass);
+        } catch (Exception e) {
+            
+        }
+        
+        //listado
+        ArrayList<Usuario> lUsuario = new ArrayList<>();
+        //modelo
+        Usuario usuario = new Usuario(id, nombres, apellidos, username, claveEncriptada, "a", rol);
+        //DAO
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        
+        //updatate del usuario
+        usuarioDAO.update(usuario);
+        lUsuario = usuarioDAO.listadoUsuarioEncrip();
+
+        request.setAttribute("usuarios", lUsuario);
+        
+        RequestDispatcher dispatcher=request.getRequestDispatcher("/admin/usuario.jsp");
+        dispatcher.forward(request,response);
     }
 
     /**
