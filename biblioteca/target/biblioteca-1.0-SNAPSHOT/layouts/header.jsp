@@ -32,13 +32,16 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/biblioteca/admin/index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/biblioteca/ControllerUser">Usuarios</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/biblioteca/LibroController">Libros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/biblioteca/ReportController?action=report">Reportes</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</a>

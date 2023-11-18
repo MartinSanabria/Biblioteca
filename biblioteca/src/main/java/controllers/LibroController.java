@@ -194,7 +194,7 @@ public class LibroController extends HttpServlet {
                 Libro libroActive = libroControl.buscarPorID(idLibro);
                 libroControl.Activar(libroActive.getIdLibro());
                 
-                String successMessage = "Libro Activo satisfactoriamente";
+                String successMessage = "libro activo satisfactoriamente";
                  
                 request.setAttribute("successMessage", successMessage);
             }

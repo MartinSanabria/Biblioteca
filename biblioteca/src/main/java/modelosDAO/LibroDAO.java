@@ -170,6 +170,34 @@ public class LibroDAO {
 
         return categoria;
     }
+   
+   public List<Libro> consultarLibrosPorCategoria(int idCategoria) {
+    List<Libro> lista = new ArrayList<>();
+
+    try {
+        this.sql = "SELECT * FROM libros WHERE id_categoria = ? AND estado = '1'";
+        ps = this.CN.getConnection().prepareStatement(this.sql);
+        ps.setInt(1, idCategoria);
+        rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Libro libro = new Libro();
+            libro.setIdLibro(rs.getInt("id_libro"));
+            libro.setNombre(rs.getString("nombre"));
+            libro.setAutor(rs.getString("autor"));
+            libro.setCantidad(rs.getInt("cantidad"));
+            libro.setFoto(rs.getString("foto"));
+            libro.setEstado(rs.getString("estado"));
+            libro.setIdCategoria(rs.getInt("id_categoria"));
+            lista.add(libro);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return lista;
+}
+
 
        
      public boolean agregar(Libro libro){

@@ -3,7 +3,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="container mt-3">
-        <h1>Control de Libros</h1>
+        <h2>Control de Libros</h2>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
             <a href="LibroController?action=new" class="btn btn-primary">Agregar</a>
         </div>
@@ -113,13 +113,13 @@
     function confirmDelete(button) {
         var idLibro = button.getAttribute('data-id');
         Swal.fire({
-            title: '?Est?s seguro?',
-            text: "?No podr?s revertir esto!",
+            title: 'Estas seguro?',
+            text: "No podras revertir esto!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'S?, Desactivar'
+            confirmButtonText: 'Si, Desactivar'
         }).then((result) => {
             if (result.isConfirmed) {
                 // Update the form action with the idCategoria value

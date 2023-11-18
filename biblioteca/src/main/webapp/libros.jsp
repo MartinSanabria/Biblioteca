@@ -40,7 +40,7 @@
 
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control" id="cantidad" name="cantidad"
-                                                placeholder="Ingrese la cantidad">
+                                                placeholder="Ingrese la cantidad" required>
                                             <label for="cantidad">Ingrese la cantidad a prestar</label>
                                         </div>
                                         <p class="text-center"><button type="submit" class="btn btn-success">Prestar</button></p>
