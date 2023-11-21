@@ -53,3 +53,9 @@ CREATE TABLE det_prestamo (
     FOREIGN KEY (id_libro) REFERENCES libros(id_libro),
     FOREIGN KEY (id_prestamo) REFERENCES prestamo(id_prestamo)
 );
+
+
+INSERT INTO `roles`( `nombre`) VALUES ('Admin');
+
+INSERT INTO `roles`( `nombre`) VALUES ('Usuario');
+
