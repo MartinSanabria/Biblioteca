@@ -17,7 +17,7 @@ public class cn {
     public cn() throws ClassNotFoundException{
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con= DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","");
+            con= DriverManager.getConnection("jdbc:mysql://localhost:3306/biblioteca","root","");
             
             if (con != null) {
                 // Verificar si la base de datos existe y crearla si es necesario
