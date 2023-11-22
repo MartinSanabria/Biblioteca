@@ -21,9 +21,9 @@
         </header>
         <div class="container mt-3">
             <h1 class="text-center">Biblioteca virtual</h1>
-            <div class="row">
+            <div class="row" style="justify-content: center; align-items: center;">
                 <c:forEach var="libro" items="${libros}">
-                    <div class="col">
+                    <div class="col-md-3">
                             <div class="card mt-5" style="width: 18rem;">
                                 <img src="${libro.foto}"
                                      class="card-img-top" alt="Imagen del producto" style="height: 15rem;">
