@@ -9,4 +9,8 @@
         </session-timeout>
     </session-config>
     
+    <listener>
+        <listener-class>db.AppInitializer</listener-class>
+    </listener>
+    
 </web-app>
