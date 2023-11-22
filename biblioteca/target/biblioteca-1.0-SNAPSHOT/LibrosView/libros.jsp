@@ -136,13 +136,13 @@
     function confirmActive(button) {
         var idLibro = button.getAttribute('data-id');
         Swal.fire({
-            title: '?Est?s seguro?',
-            text: "?No podr?s revertir esto!",
+            title: 'Estas seguro?',
+            text: "No podras revertir esto!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'S?, Activar'
+            confirmButtonText: 'Si, Activar'
         }).then((result) => {
             if (result.isConfirmed) {
                 // Update the form action with the idCategoria value

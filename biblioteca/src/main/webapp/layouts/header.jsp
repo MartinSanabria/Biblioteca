@@ -16,7 +16,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
          <img src="/biblioteca/Assets/LogoOnlyNoBackground.png" alt="" width="50" height="50">
         <a class="navbar-brand" href="#">Biblioteca
@@ -52,7 +52,7 @@
                 </li>             
             </ul>             
         </div>
-        <a class="btn btn-danger" href="ControllerLogin?action=deleteSesion"> <i class="fa-solid fa-right-from-bracket" style="font-size: 20px;"></i></a>
+        <a class="btn btn-danger" href="ControllerLogin?action=close"> <%= session.getAttribute("usuario") %>
+                <i class="fa-solid fa-right-from-bracket" style="font-size: 20px;"></i></a>
     </div>
 </nav>
- 

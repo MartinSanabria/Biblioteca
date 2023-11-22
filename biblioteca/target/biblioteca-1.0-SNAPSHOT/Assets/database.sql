@@ -59,3 +59,5 @@ INSERT INTO `roles`( `nombre`) VALUES ('Admin');
 
 INSERT INTO `roles`( `nombre`) VALUES ('Usuario');
 
+INSERT INTO `usuario`(`nombres`, `apellidos`, `username`, `estado`, `password_user`, `id_rol`) 
+VALUES ('Admin',' ','Admin','a','tquBiqvrIyufn/1sCNP+LA==','1')

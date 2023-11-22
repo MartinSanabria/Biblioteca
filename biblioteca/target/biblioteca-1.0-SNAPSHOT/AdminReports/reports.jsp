@@ -84,12 +84,13 @@
         // HTML personalizado para el contenido del PDF
         var contenidoHTML = '' +
             '<h2 style="text-align: center;">Registro de Libros</h2>' +
-            '<table class="table table-striped table-bordered text-center" style="width: 100%; margin-top: 10px;">' +
+            '<table class="table table-striped table-bordered text-center" style="width: 100%; margin-top: 30px;">' +
                 '<thead class="table-dark">' +
                     '<tr>' +
                         '<th>Libro</th>' +
                         '<th>Autor</th>' +
                         '<th>Categoría</th>' +
+                        '<th>Cantidad</th>' +
                     '</tr>' +
                 '</thead>' +
                 '<tbody>';
@@ -100,6 +101,7 @@
                     '<td>${libro.nombre}</td>' +
                     '<td>${libro.autor}</td>' +
                     '<td>${librosData[libro.id_libro].nombreCategoria}</td>' +
+                    '<td>${libro.cantidad}</td>' +
                 '</tr>';
         </c:forEach>
 
